@@ -1,0 +1,771 @@
+
+Experiment No:1
+1. Implement and demonstrate the FIND-S algorithm for finding the most specific
+hypothesis based on a given set of training data samples. Read the training data from a
+.CSV file.
+AIM: Implement and demonstrate the FIND-S algorithm for finding the most specific
+hypothesis based on a given set of training data samples. Read the training data from a .CSV
+file.
+DESCRIPTION:
+Steps involved in FIND-S:
+1)Start with the most specific hypothesis.
+2)Take the next example and if it is negative,then no changes occur to the hypothesis
+3)if the example is positive and we find that our initial hypothesis is too specific then we update
+our current hypothesis
+4)Keep repeating the above steps till all the training examples are complete
+5)After we have completed all the training examples we will have the final hypothesis when we
+can use to classify the new examples.
+PROGRAM:
+import pandas as pd
+import numpy as np
+#to read the data in the csv file
+data = pd.read_csv("data.csv")
+print(data,"n")
+#making an array of all the attributes
+d = np.array(data)[:,:-1]
+print("n The attributes are: ",d)
+#segragating the target that has positive and negative examples
+target = np.array(data)[:,-1]
+print("n The target is: ",target)
+#training function to implement find-s algorithm
+def train(c,t):
+for i, val in enumerate(t):
+if val == "Yes":
+specific_hypothesis = c[i].copy()
+break
+for i, val in enumerate(c):
+if t[i] == "Yes":
+for x in range(len(specific_hypothesis)):
+if val[x] != specific_hypothesis[x]:
+specific_hypothesis[x] = '?'
+else:
+pass
+return specific_hypothesis
+#obtaining the final hypothesis
+print("n The final hypothesis is:",train(d,target))
+
+
+
+Experiment No:2
+2.For a given set of training data examples stored in a .CSV file, implement and
+demonstrate the CandidateElimination algorithm to output a description of the set of all
+hypotheses consistent with the training examples
+AIM: For a given set of training data examples stored in a .CSV file, implement and
+demonstrate the CandidateElimination algorithm to output a description of the set of all
+hypotheses consistent with the training examples
+DESCRIPTION:
+The Candidate Elimination Algorithm (CEA) is an improvement over the Find-S
+algorithm for classification tasks. While CEA shares some similarities with Find-S, it also has
+some essential differences that offer advantages and disadvantages.
+The candidate elimination algorithm does this by updating the general and specific
+boundary for each new example.
+Terms used:
+1) concept learning: Concept learning is basically the learning task of the machine
+(Learn by Train data)
+2) General Hypothesis: Not Specifying features to learn the machine.
+G = {„?‟, „?‟,‟?‟,‟?‟…}: Number of attributes
+3) Specific Hypothesis: Specifying features to learn machine (Specific feature)
+4) S= {„pi‟,‟pi‟,‟pi‟…}: The number of pi depends on a number of attributes.
+5) Version Space: It is an intermediate of general hypothesis and Specific hypothesis. It
+not only just writes one hypothesis but a set of all possible hypotheses based on training
+data-set.
+PROGRAM:
+def learn(concepts, target):
+specific_h = concepts[0].copy()
+print("\nInitialization of specific_h and genearal_h")
+print("\nSpecific Boundary: ", specific_h)
+general_h = [["?" for i in range(len(specific_h))] for i in range(len(specific_h))]
+print("\nGeneric Boundary: ",general_h)
+for i, h in enumerate(concepts):
+print("\nInstance", i+1 , "is ", h)
+if target[i] == "yes":
+print("Instance is Positive ")
+for x in range(len(specific_h)):
+if h[x]!= specific_h[x]:
+specific_h[x] ='?'
+general_h[x][x] ='?'
+if target[i] == "no":
+print("Instance is Negative ")
+for x in range(len(specific_h)):
+if h[x]!= specific_h[x]:
+general_h[x][x] = specific_h[x]
+else:
+print("Specific Bundary after ", i+1, "Instance is ", specific_h)
+print("Generic Boundary after ", i+1, "Instance is ", general_h)
+print("\n")
+indices = [i for i, val in enumerate(general_h) if val == ['?', '?', '?', '?', '?', '?']]
+for i in indices:
+general_h.remove(['?', '?', '?', '?', '?', '?'])
+return specific_h, general_h
+s_final, g_final = learn(concepts, target)
+print("Final Specific_h: ", s_final, sep="\n")
+print("Final General_h: ", g_final, sep="\n
+OUTPUT:
+Instances are :
+[[„Sunny‟,‟Warm‟,‟Normal‟,‟Strong‟,‟Warm‟,‟Same‟],
+[„Sunny‟,‟Warm‟,‟High‟,‟Strong‟,‟Warm‟,‟Same‟],
+[„Rainy‟,‟Cold‟,‟High‟,‟Strong‟,‟Warm‟,‟Change‟],
+[„Sunny‟,‟Warm‟,‟High‟,‟Strong‟,‟Cool‟,‟Change‟]]
+Target values are ['Yes‟,‟Yes‟,‟No‟,‟No‟]
+Initialisation of specific hypothesis and general hypothesis.
+Specific boundary [„Sunny‟,‟Warm‟,‟Normal‟,‟Strong‟,‟Warm‟,‟Same‟],
+instance 1 is [„Sunny‟,‟Warm‟,‟Normal‟,‟Strong‟,‟Warm‟,‟Same‟],
+Instance 2 is[„Sunny‟,‟Warm‟,‟High‟,‟Strong‟,‟Warm‟,‟Same‟],
+Instance 3 is [„Rainy‟,‟Cold‟,‟High‟,‟Strong‟,‟Warm‟,‟Change‟]
+, Instance 4 is [„Sunny‟,‟Warm‟,‟High‟,‟Strong‟,‟Cool‟,‟Change‟]]
+Final specific_h: [„Sunny‟,‟Warm‟,‟Normal‟,‟Strong‟,‟Warm‟,‟Same‟]
+Final general_h: [ ]
+
+
+
+Experiment No:3
+3. Write a program to demonstrate the working of the decision tree based ID3 algorithm.
+Use an appropriate dataset for building the decision tree and apply this knowledge to
+classify a new sample
+AIM: Write a program to demonstrate the working of the decision tree based ID3 algorithm.
+Use an appropriate dataset for building the decision tree and apply this knowledge to classify a
+new sample
+DESCRIPTION:
+What are Decision Trees?
+In simple words, a decision tree is a structure that contains nodes (rectangular boxes) and
+edges(arrows) and is built from a dataset (table of columns representing features/attributes and
+rows corresponds to records). Each node is either used to make a decision (known as decision
+node) or represent an outcome (known as leaf node).
+The picture above depicts a decision tree that is used to classify whether a person is Fit or Unfit.
+The decision nodes here are questions like „‟„Is the person less than 30 years of age?‟, „Does the
+person eat junk?‟, etc. and the leaves are one of the two possible outcomes viz. Fit and Unfit.
+Looking at the Decision Tree we can say make the following decisions: if a person is less than
+30 years of age and doesn‟t eat junk food then he is Fit, if a person is less than 30 years of age
+and eats junk food then he is Unfit and so on. The initial node is called the root node (colored in
+blue), the final nodes are called the leaf nodes (colored in green) and the rest of the nodes are
+called intermediate or internal nodes
+The root and intermediate nodes represent the decisions while the leaf nodes represent the
+outcomes.
+PROGRAM:
+import math
+import csv
+def load_csv(filename):
+lines=csv.reader(open(filename,"r"));
+dataset = list(lines)
+headers = dataset.pop(0)
+return dataset, headers
+class Node:
+def init (self,attribute):
+self.attribute=attribute
+self.children=[]
+self.answer=""
+def subtables(data, col, delete):
+dic = {}
+coldata = [row[col] for row in data]
+attr = list(set(coldata))
+counts = [0] * len(attr)
+r = len(data)
+c = len(data[0])
+# Count occurrences of each attribute value
+for x in range(len(attr)):
+for y in range(y):
+if data[y][col] == attr[x]:
+counts[x] += 1
+# Create subtables based on attribute values
+for x in range(len(attr)):
+dic[attr[x]] = [[0 for i in range(c)] for j in range(counts[x])]
+pos = 0
+for y in range(r):
+if data[y][col] == attr[x]:
+if delete:
+del data[y][col]
+dic[attr[x]][pos] = data[y]
+pos += 1
+return attr, dic
+def entropy(S):
+attr = list(set(S))
+# If there's only one unique value in the set, entropy is 0
+if len(attr) == 1:
+return 0
+counts = [0, 0]
+# Count occurrences of each unique value in the set
+for i in range(2):
+counts[i] = sum([1 for x in S if attr[i] == x]) / (len(S) * 1.0)
+sums = 0
+# Calculate entropy using the formula: -pi * log2(p_i)
+for cnt in counts:
+sums += -1 * cnt * math.log(cnt, 2)
+return sums
+
+def compute_gain(data, col):
+attr, dic = subtables(data, col, delete=False)
+total_size = len(data)
+entropies = [0] * len(attr)
+ratio = [0] * len(attr)
+# Calculate the total entropy of the entire dataset
+total_entropy = entropy([row[-1] for row in data])
+# Calculate entropies and ratios for each subset based on the attribute
+for x in range(len(attr)):
+ratio[x] = len(dic[attr[x]]) / (total_size * 1.0)
+entropies[x] = entropy([row[-1] for row in dic[attr[x]]])
+total_entropy -= ratio[x] * entropies[x]
+return total_entropy
+def build_tree(data, features):
+lastcol = [row[-1] for row in data]
+# If all examples have the same class, create a leaf node with that class
+if len(set(lastcol)) == 1:
+node = Node("")
+node.answer = lastcol[0]
+return node
+# Get the number of columns in the dataset
+n = len(data[0]) - 1
+# Calculate information gains for each column
+gains = [compute_gain(data, col) for col in range(n)]
+# Find the index of the column with the maximum information gain
+split = gains.index(max(gains))
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+# Create a new internal node with the chosen feature
+node = Node(features[split])
+# Exclude the chosen feature from the list of remaining features
+remaining_features = features[:split] + features[split + 1:]
+# Split the dataset based on the chosen feature
+attr, dic = subtables(data, split, delete=True)
+# Recursively build subtrees for each subset of the data
+for x in range(len(attr)):
+child = build_tree(dic[attr[x]], remaining_features)
+node.children.append((attr[x], child))
+return node
+def print_tree(node, level):
+# If the node is a leaf node, print the answer
+if node.answer != "":
+print(" " * level, node.answer)
+return
+# Print the attribute of the current node
+print(" " * level, node.attribute)
+# Print each child of the current node
+for value, n in node.children:
+print(" " * (level + 1), value)
+# Recursively print the subtree rooted at the child
+print_tree(n, level + 2)
+def classify(node, x_test, features):
+# If the node is a leaf node, print the answer (classification result)
+if node.answer != "":
+print(node.answer)
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+return
+# Find the position of the attribute in the features list
+pos = features.index(node.attribute)
+# Traverse the children based on the value of the instance's attribute
+for value, n in node.children:
+if x_test[pos] == value:
+# Recursively classify using the child node
+classify(n, x_test, features)
+dataset,features=load_csv("id3.csv")
+node1=build_tree(dataset,features)
+print("The decision tree for the dataset using ID3 algorithm is")
+print_tree(node1,0)
+testdata,features=load_csv("id3_test_1.csv")
+for xtest in testdata:
+print("The test instance:",xtest)
+print("The label for test instance:",end=" ")
+classify(node1,xtest,features)
+OUTPUT:
+The decision tree for the dataset using ID3 algorithm is
+Outlook
+sunny
+Humidity
+high
+no
+normal
+yes
+overcast
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+yes
+rain
+Wind
+strong
+no
+weak
+yes
+The test instance: ['rain', 'cool', 'normal', 'strong']
+The label for test instance: no
+The test instance: ['sunny', 'mild', 'normal', 'strong']
+The label for test instance: yes
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+
+
+
+
+Experiment No:4
+4. Exercises to solve the real-world problems using Linear Regression
+AIM: Exercises to solve the real-world problems using Linear Regression
+DESCRIPTION:
+Linear regression is a type of supervised machine learning algorithm that computes the
+linear relationship between a dependent variable and one or more independent features
+When the number of the independent feature, is 1 then it is known as Univariate Linear
+regression, and in the case of more than one feature, it is known as multivariate linear
+regression.
+These regression estimates are used to explain the relationship between one dependent
+variable and one or more independent variables. The simplest form of the regression equation
+with one dependent and one independent variable is defined by the formula
+y = c + b*x, where y = estimated dependent variable score, c = constant, b = regression
+coefficient, and x = score on the independent variable.
+A fitted linear regression model can be used to identify the relationship between a single
+predictor variable xj and the response variable y when all the other predictor variables in the
+model are "held fixed". Specifically, the interpretation of βj is the expected change in y for a
+one-unit change in xj when the other covariates are held fixed—that is, the expected value of the
+partial derivative of y with respect to xj. This is sometimes called the unique effect of xj on y. In
+contrast, the marginal effect of xj on y can be assessed using a correlation coefficient or simple
+linear regression model relating only xj to y; this effect is the total derivative of y with respect
+to xj
+PROGRAM:
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+!pip install scikit-learn
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+# Load and Explore the Boston Housing dataset
+data=pd.read_csv('boston.csv')
+print(data.head())
+# Select features (X) and target variable (y)
+X = data.drop('Price', axis=1)
+y = data['Price']
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Initialize the Linear Regression model
+model = LinearRegression()
+# Train the model
+model.fit(X_train, y_train)
+# Make predictions on the training set
+y_train_pred = model.predict(X_train)
+# Make predictions on the test set
+y_test_pred = model.predict(X_test)
+# Evaluate the model on both training and testing sets
+mse_train = mean_squared_error(y_train, y_train_pred)
+mse_test = mean_squared_error(y_test, y_test_pred)
+# Visualize the predicted vs actual prices for training set
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.scatter(y_train, y_train_pred)
+plt.xlabel('Actual Prices (Training)')
+plt.ylabel('Predicted Prices (Training)')
+plt.title('Linear Regression: Actual vs Predicted Prices (Training)')
+plt.plot([min(y_train), max(y_train)], [min(y_train), max(y_train)], linestyle='--', color='red')
+# Visualize the predicted vs actual prices for test set
+plt.subplot(1, 2, 2)
+plt.scatter(y_test, y_test_pred)
+plt.xlabel('Actual Prices (Testing)')
+plt.ylabel('Predicted Prices (Testing)')
+plt.title('Linear Regression: Actual vs Predicted Prices (Testing)')
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red')
+plt.tight_layout()
+plt.show()
+print(f'Mean Squared Error (Training): {mse_train}')
+print(f'Mean Squared Error (Testing): {mse_test}')
+OUTPUT:
+Unnamed: 0 CRIM ZN INDUS CHAS NOX RM AGE DIS RAD \
+0 0 0.00632 18.0 2.31 0.0 0.538 6.575 65.2 4.0900 1.0
+1 1 0.02731 0.0 7.07 0.0 0.469 6.421 78.9 4.9671 2.0
+2 2 0.02729 0.0 7.07 0.0 0.469 7.185 61.1 4.9671 2.0
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+3 3 0.03237 0.0 2.18 0.0 0.458 6.998 45.8 6.0622 3.0
+4 4 0.06905 0.0 2.18 0.0 0.458 7.147 54.2 6.0622 3.0
+TAX PTRATIO B LSTAT Price
+0 296.0 15.3 396.90 4.98 24.0
+1 242.0 17.8 396.90 9.14 21.6
+2 242.0 17.8 392.83 4.03 34.7
+3 222.0 18.7 394.63 2.94 33.4
+4 222.0 18.7 396.90 5.33 36.2
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+
+
+
+
+
+Experiment No:5
+5. Exercises to solve the real-world problems using Logistic Regression
+AIM: Exercises to solve the real-world problems using Logistic Regression
+DESCRIPTION:
+1) Logistic regression predicts the output of a categorical dependent variable. Therefore,
+the outcome must be a categorical or discrete value.
+2) It can be either Yes or No, 0 or 1, true or False, etc. but instead of giving the exact value
+as 0 and 1, it gives the probabilistic values which lie between 0 and 1.
+3) In Logistic regression, instead of fitting a regression line, we fit an “S” shaped logistic
+function, which predicts two maximum values (0 or 1).
+Logistic Regression Equation:
+The odd is the ratio of something occurring to something not occurring. it is different from
+probability as the probability is the ratio of something occurring to everything that could
+possibly occur. so odd will be:
+P(x)/1-p(x)=e^z
+PROGRAM:
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import load_iris
+# Load the Iris dataset
+iris = load_iris()
+X = iris.data[:, :2] # Using only the first two features for visualization
+y = iris.target
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Initialize the Logistic Regression model
+model = LogisticRegression()
+# Train the model
+model.fit(X_train, y_train)
+# Make predictions on the test set
+y_pred = model.predict(X_test)
+# Visualize the results
+plt.figure(figsize=(16, 8))
+# Scatter plot for training data
+plt.subplot(1, 2, 1)
+plt.scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap='viridis', edgecolors='k', label='Training
+Data')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Sepal Width (cm)')
+plt.title('Logistic Regression: Training Data')
+# Scatter plot for testing data
+plt.subplot(1, 2, 2)
+scatter = plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap='viridis', edgecolors='k',
+label='Testing Data')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Sepal Width (cm)')
+plt.title('Logistic Regression: Testing Data')
+# Plot decision boundaries for both plots
+for i, data in enumerate([X_train, X_test]):
+x_min, x_max = data[:, 0].min() - 1, data[:, 0].max() + 1
+y_min, y_max = data[:, 1].min() - 1, data[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.01), np.arange(y_min, y_max, 0.01))
+Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+# Contour plot for decision boundaries
+plt.subplot(1, 2, i + 1)
+plt.contour(xx, yy, Z, levels=[0], linewidths=2, colors='red', linestyles='dashed')
+# Show legend
+
+if i == 0:
+handles, labels = scatter.legend_elements()
+plt.legend(handles, labels, title='Classes')
+plt.tight_layout()
+plt.show()
+OUTPUT:
+
+
+
+Experiment No:6
+6. Exercises to solve the real-world problems using Binary Classifier
+AIM: Exercises to solve the real-world problems using Binary Classifier
+DESCRIPTION:
+Let‟s assume there is a problem where we have to classify a product that belongs to either class
+A or class B.
+Let us define few statistical parameters :
+TP (True Positive) = number of Class A products, which are classified as Class A products.
+FN (False Negative) = number of Class A products, which are classified as Class B products.
+TN (True Negative) = number of Class B products, which are classified as Class B products.
+FP (False Positive) = number of Class B products, which are classified as Class A products.
+Sensitivity measures the proportion of positives that are correctly identified as such.
+Also known as True positive rate(TPR).
+Sensitivity = ( TP / (TP+FN) ) * 100;
+Specificity measures the proportion of negatives that are correctly identified as such.
+Also known as True negative rate(TNR).
+Specificity = ( TN/(TN+FP) ) * 100;
+Accuracy measures how well the test predicts both TPR and TNR
+Accuracy = ( (TP+TN) / (TP+TN+FP+FN) ) * 100;
+Efficiency = ( Sensitivity + Specificity + Accuracy ) / 3;
+PROGRAM:
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+import sklearn
+import pandas as pd
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+import tensorflow as tf
+from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
+from sklearn.preprocessing import MinMaxScaler
+df = pd.read_csv("heart.csv")
+df.head()
+target_column = "output"
+numerical_column = df.columns.drop(target_column)
+output_rows = df[target_column]
+df.drop(target_column,axis=1,inplace=True)
+scaler = MinMaxScaler()
+scaler.fit(df)
+t_df = scaler.transform(df)
+X_train, X_test, y_train, y_test = train_test_split(t_df, output_rows,
+test_size=0.25, random_state=0)
+print('X_train:',np.shape(X_train))
+print('y_train:',np.shape(y_train))
+print('X_test:',np.shape(X_test))
+
+print('y_test:',np.shape(y_test))
+basic_model = Sequential()
+basic_model.add(Dense(units=16, activation='relu', input_shape=(13,)))
+basic_model.add(Dense(1, activation='sigmoid'))
+adam = keras.optimizers.Adam(learning_rate=0.001)
+basic_model.compile(loss='binary_crossentropy', optimizer=adam,
+metrics=["accuracy"])
+basic_model.fit(X_train, y_train, epochs=100)
+loss_and_metrics = basic_model.evaluate(X_test, y_test)
+print(loss_and_metrics)
+print('Loss = ',loss_and_metrics[0])
+print('Accuracy = ',loss_and_metrics[1])
+predicted = basic_model.predict(X_test)
+predicted = tf.squeeze(predicted)
+predicted = np.array([1 if x >= 0.5 else 0 for x in predicted])
+actual = np.array(y_test)
+conf_mat = confusion_matrix(actual, predicted)
+displ = ConfusionMatrixDisplay(confusion_matrix=conf_mat)
+displ.plot()
+OUTPUT:
+Loss = 0.4016321301460266
+Accuracy = 0.8289473652839661
+
+
+
+Experiment No:7
+7. Develop a program for Bias, Variance, Remove duplicates, Cross Validation
+AIM: Develop a program for Bias, Variance, Remove duplicates, Cross Validation
+DESCRIPTION:
+Bias and Variance Calculation: These metrics help in understanding thetrade-offs between the
+model's complexity and its generalization capability overunseen data.
+Remove Duplicates: A utility function to clean data by removing duplicate entries.
+Cross-Validation: A method to evaluate the performance of a model by splittingthe data into
+several parts, training the model on some parts and testing it on others.
+PROGRAM:
+import numpy as np
+from sklearn.model_selection import KFold
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import mean_squared_error, accuracy_score
+# Function to calculate Bias and Variance
+def calculate_bias_variance(y_true, y_pred):
+bias = np.mean(y_pred - y_true) # Corrected bias calculation
+variance = np.var(y_pred)
+return bias, variance
+# Function to remove duplicates in a dataset
+def remove_duplicates(data):
+return list(set(data))
+# Function for Cross Validation
+def cross_validation(X, y, n_splits=4):
+accuracies = [] # List to store each fold's accuracy
+kf = KFold(n_splits=n_splits, shuffle=True)
+for train_idx, test_idx in kf.split(X):
+X_train, X_test = X[train_idx], X[test_idx]
+y_train, y_test = y[train_idx], y[test_idx]
+dt = DecisionTreeClassifier()
+
+dt.fit(X_train, y_train)
+y_pred = dt.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+print("accuracy :", acc)
+accuracies.append(acc)
+avg_accuracy = np.mean(accuracies)
+print("Average Accuracy:", avg_accuracy)
+y_true = np.array([1, 2, 3, 4, 5])
+y_pred = np.array([3, 2, 5, 7, 9])
+bias, variance = calculate_bias_variance(y_true, y_pred)
+print("Bias:", bias)
+print("Variance:", variance)
+data = [1, 2, 2, 3, 4, 4, 5]
+data_no_duplicates = remove_duplicates(data)
+print("Data with duplicates:", data)
+print("Data without duplicates:", data_no_duplicates)
+X = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+y = np.array([0, 1, 0, 1, 0])
+cross_validation(X, y)
+OUTPUT:
+Bias: 2.2
+Variance: 6.5600000000000005
+Data with duplicates: [1, 2, 2, 3, 4, 4, 5]
+Data without duplicates: [1, 2, 3, 4, 5]
+accuracy : 0.0
+accuracy : 0.0
+accuracy : 0.0
+accuracy : 0.0
+Average Accuracy: 0.0
+
+
+
+
+Experiment No:8
+8. Write a program to implement One-hot Encoding.
+AIM: Write a program to implement One-hot Encoding.
+DESCRIPTION:
+One-hot encoding is a technique used to represent categorical variables as numerical values in
+machine learning models. Here‟s how it works:
+Categorical Data:
+Categorical data consists of label values (e.g., “red,” “green,” “blue”) rather than numeric
+values.
+Machine learning models typically require numerical input, so we need to convert
+categorical data into a suitable format.
+One-Hot Encoding:
+In one-hot encoding, each unique category is represented by a separate binary column.
+For each category, a new column is created, and the value is set to 1 if the category is
+present and 0 otherwise.
+This approach allows the use of categorical variables in models that require numerical
+input.
+Advantages:
+Enables the use of categorical variables in machine learning models.
+Provides more information to the model about the categorical variable.
+Helps avoid the problem of ordinality (natural ordering) in categorical data.
+Disadvantages:
+Increases dimensionality (one column per category).
+Can lead to sparse data.
+May cause overfitting if there are many categories and a small sample size.
+In summary, one-hot encoding is a powerful technique for handling categorical
+data.
+
+import numpy as np
+def one_hot_encoding(data):
+categories=np.array(data)
+encoded_data=np.zeros((len(data),len(categories)))
+for i, category in enumerate(categories):
+encoded_data[:,i]=(data==category)
+astype(int)
+return encoded_data,categories
+data=np.array(['A','B','A','C','B','A','D'])
+encoded_data,categories=one_hot_encoding(data)
+print("Original Data:",data)
+print("\n One Hot Encoded Data:",encoded_data)
+print("\n Encoded Categories",categories)
+OUTPUT:
+Original Data:
+[„A‟,‟B‟,‟A‟,‟C‟,‟B‟,‟A‟,‟D‟]
+One Hot Encoded Data:
+[[1 , 0 , 0 , 0]
+[ 0 , 1 , 0 , 0]
+[ 1 , 0 , 0 ,0]
+[ 0 , 0 , 1 ,0]
+[ 0 , 1 , 0 , 0]
+[ 1, 0 , 0 , 0]
+[ 0 , 0 , 0 , 1]]
+Encoded Categories:
+[„A‟,‟B‟,‟C‟,‟D‟]
+
+
+Experiment-11:
+Write a program to implement k-Nearest Neighbor algorithm to classify the iris data set.
+Print both correct and wrong predictions.
+Description:
+Statistical learning refers to a collection of mathematical and computation tools to understand
+data. In what is often called supervised learning, the goal is to estimate or predict an output
+based on one or more inputs. The inputs have many names, like predictors, independent
+variables, features, and variables being called common. The output or outputs are often called
+response variables, or dependent variables. If the response is quantitative – say, a number that
+measures weight or height, we call these problems regression problems. If the response is
+qualitative– say, yes or no, or blue or green, we call these problems classification problems.
+This case study deals with one specific approach to classification. The goal is to set up a
+classifier such that when it’s presented with a new observation whose category is not known, it
+will attempt to assign that observation to a category, or a class, based on the observations for
+which it does know the true category. This specific method is known as the k-Nearest
+Neighbors classifier, or KNN for short. Given a positive integer k, say 5, and a new data point,
+it first identifies those k points in the data that are nearest to the point and classifies the new
+data point as belonging to the most common class among those k neighbors.
+We will test our classifier on a scikit learn dataset, called “IRIS”. For importing “IRIS”, we
+need to import datasets from sklearn and call the function datasets.load_iris().The “IRIS”
+dataset holds information on sepal length, sepal width, petal length & petal width for three
+different class of Iris flower – Iris-Setosa, Iris-Versicolour & Iris-Verginica. Based on the data
+from the dataset, we need to classify and visualize them using our classifier. The Sci-kit learn
+(sklearn) library already holds a pre-built classifier.We will compare both the classifiers,
+[scikitlearn vs the one that we built] and check/compare prediction accuracy of both the
+classifier.
+Program:
+import numpy as np
+import pandas as pd
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn import metrics
+names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
+
+dataset = pd.read_csv("11-dataset.csv", names=names)
+X = dataset.iloc[:, :-1]
+y = dataset.iloc[:, -1]
+print(X.head())
+Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.10)
+classifier = KNeighborsClassifier(n_neighbors=5).fit(Xtrain, ytrain)
+ypred = classifier.predict(Xtest)
+i = 0
+print ("\n ")
+print ('%-25s %-25s %-25s' % ('Original Label', 'Predicted Label', 'Correct/Wrong'))
+print (" ")
+for label in ytest:
+print ('%-25s %-25s' % (label, ypred[i]), end="")
+if (label == ypred[i]):
+print (' %-25s' % ('Correct'))
+else:
+print (' %-25s' % ('Wrong'))
+i = i + 1
+print (" ")
+print("\nConfusion Matrix:\n",metrics.confusion_matrix(ytest, ypred))
+print (" ")
+print("\nClassification Report:\n",metrics.classification_report(ytest, ypred))
+print (" ")
+print('Accuracy of the classifer is %0.2f' % metrics.accuracy_score(ytest,ypred))
+print (" ")
+Exp.No:
+Date:
+Page No:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
+Output:
+sepal-length sepal-width petal-length petal-width
+0 5.1 3.5 1.4 0.2
+1 4.9 3.0 1.4 0.2
+2 4.7 3.2 1.3 0.2
+3 4.6 3.1 1.5 0.2
+4 5.0 3.6 1.4 0.2
+Original Label Predicted Label Correct/Wrong
+Iris-versicolor Iris-versicolor Correct
+Iris-setosa Iris-setosa Correct
+Iris-setosa Iris-setosa Correct
+Iris-virginica Iris-virginica Correct
+Iris-versicolor Iris-versicolor Correct
+Iris-versicolor Iris-versicolor Correct
+Iris-versicolor Iris-versicolor Correct
+Iris-versicolor Iris-versicolor Correct
+Iris-versicolor Iris-virginica Wrong
+Iris-virginica Iris-virginica Correct
+Iris-virginica Iris-virginica Correct
+Iris-versicolor Iris-virginica Wrong
+Iris-versicolor Iris-versicolor Correct
+Iris-virginica Iris-virginica Correct
+
+
+Confusion Matrix:
+[[2 0 0]
+[0 6 2]
+[0 0 5]]
+Classification Report:
+precision recall f1-score support
+Iris-setosa 1.00 1.00 1.00 2
+Iris-versicolor 1.00 0.75 0.86 8
+Iris-virginica 0.71 1.00 0.83 5
+accuracy 0.87 15
+macro avg 0.90 0.92 0.90 15
+weighted avg 0.90 0.87 0.87 15
+Accuracy of the classifer is 0.87
