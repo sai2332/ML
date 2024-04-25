@@ -118,189 +118,6 @@ Final general_h: [ ]
 
 
 
-Experiment No:3
-3. Write a program to demonstrate the working of the decision tree based ID3 algorithm.
-Use an appropriate dataset for building the decision tree and apply this knowledge to
-classify a new sample
-AIM: Write a program to demonstrate the working of the decision tree based ID3 algorithm.
-Use an appropriate dataset for building the decision tree and apply this knowledge to classify a
-new sample
-DESCRIPTION:
-What are Decision Trees?
-In simple words, a decision tree is a structure that contains nodes (rectangular boxes) and
-edges(arrows) and is built from a dataset (table of columns representing features/attributes and
-rows corresponds to records). Each node is either used to make a decision (known as decision
-node) or represent an outcome (known as leaf node).
-The picture above depicts a decision tree that is used to classify whether a person is Fit or Unfit.
-The decision nodes here are questions like „‟„Is the person less than 30 years of age?‟, „Does the
-person eat junk?‟, etc. and the leaves are one of the two possible outcomes viz. Fit and Unfit.
-Looking at the Decision Tree we can say make the following decisions: if a person is less than
-30 years of age and doesn‟t eat junk food then he is Fit, if a person is less than 30 years of age
-and eats junk food then he is Unfit and so on. The initial node is called the root node (colored in
-blue), the final nodes are called the leaf nodes (colored in green) and the rest of the nodes are
-called intermediate or internal nodes
-The root and intermediate nodes represent the decisions while the leaf nodes represent the
-outcomes.
-PROGRAM:
-import math
-import csv
-def load_csv(filename):
-lines=csv.reader(open(filename,"r"));
-dataset = list(lines)
-headers = dataset.pop(0)
-return dataset, headers
-class Node:
-def init (self,attribute):
-self.attribute=attribute
-self.children=[]
-self.answer=""
-def subtables(data, col, delete):
-dic = {}
-coldata = [row[col] for row in data]
-attr = list(set(coldata))
-counts = [0] * len(attr)
-r = len(data)
-c = len(data[0])
-# Count occurrences of each attribute value
-for x in range(len(attr)):
-for y in range(y):
-if data[y][col] == attr[x]:
-counts[x] += 1
-# Create subtables based on attribute values
-for x in range(len(attr)):
-dic[attr[x]] = [[0 for i in range(c)] for j in range(counts[x])]
-pos = 0
-for y in range(r):
-if data[y][col] == attr[x]:
-if delete:
-del data[y][col]
-dic[attr[x]][pos] = data[y]
-pos += 1
-return attr, dic
-def entropy(S):
-attr = list(set(S))
-# If there's only one unique value in the set, entropy is 0
-if len(attr) == 1:
-return 0
-counts = [0, 0]
-# Count occurrences of each unique value in the set
-for i in range(2):
-counts[i] = sum([1 for x in S if attr[i] == x]) / (len(S) * 1.0)
-sums = 0
-# Calculate entropy using the formula: -pi * log2(p_i)
-for cnt in counts:
-sums += -1 * cnt * math.log(cnt, 2)
-return sums
-
-def compute_gain(data, col):
-attr, dic = subtables(data, col, delete=False)
-total_size = len(data)
-entropies = [0] * len(attr)
-ratio = [0] * len(attr)
-# Calculate the total entropy of the entire dataset
-total_entropy = entropy([row[-1] for row in data])
-# Calculate entropies and ratios for each subset based on the attribute
-for x in range(len(attr)):
-ratio[x] = len(dic[attr[x]]) / (total_size * 1.0)
-entropies[x] = entropy([row[-1] for row in dic[attr[x]]])
-total_entropy -= ratio[x] * entropies[x]
-return total_entropy
-def build_tree(data, features):
-lastcol = [row[-1] for row in data]
-# If all examples have the same class, create a leaf node with that class
-if len(set(lastcol)) == 1:
-node = Node("")
-node.answer = lastcol[0]
-return node
-# Get the number of columns in the dataset
-n = len(data[0]) - 1
-# Calculate information gains for each column
-gains = [compute_gain(data, col) for col in range(n)]
-# Find the index of the column with the maximum information gain
-split = gains.index(max(gains))
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
-# Create a new internal node with the chosen feature
-node = Node(features[split])
-# Exclude the chosen feature from the list of remaining features
-remaining_features = features[:split] + features[split + 1:]
-# Split the dataset based on the chosen feature
-attr, dic = subtables(data, split, delete=True)
-# Recursively build subtrees for each subset of the data
-for x in range(len(attr)):
-child = build_tree(dic[attr[x]], remaining_features)
-node.children.append((attr[x], child))
-return node
-def print_tree(node, level):
-# If the node is a leaf node, print the answer
-if node.answer != "":
-print(" " * level, node.answer)
-return
-# Print the attribute of the current node
-print(" " * level, node.attribute)
-# Print each child of the current node
-for value, n in node.children:
-print(" " * (level + 1), value)
-# Recursively print the subtree rooted at the child
-print_tree(n, level + 2)
-def classify(node, x_test, features):
-# If the node is a leaf node, print the answer (classification result)
-if node.answer != "":
-print(node.answer)
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
-return
-# Find the position of the attribute in the features list
-pos = features.index(node.attribute)
-# Traverse the children based on the value of the instance's attribute
-for value, n in node.children:
-if x_test[pos] == value:
-# Recursively classify using the child node
-classify(n, x_test, features)
-dataset,features=load_csv("id3.csv")
-node1=build_tree(dataset,features)
-print("The decision tree for the dataset using ID3 algorithm is")
-print_tree(node1,0)
-testdata,features=load_csv("id3_test_1.csv")
-for xtest in testdata:
-print("The test instance:",xtest)
-print("The label for test instance:",end=" ")
-classify(node1,xtest,features)
-OUTPUT:
-The decision tree for the dataset using ID3 algorithm is
-Outlook
-sunny
-Humidity
-high
-no
-normal
-yes
-overcast
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
-yes
-rain
-Wind
-strong
-no
-weak
-yes
-The test instance: ['rain', 'cool', 'normal', 'strong']
-The label for test instance: no
-The test instance: ['sunny', 'mild', 'normal', 'strong']
-The label for test instance: yes
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
-
-
 
 
 Experiment No:4
@@ -330,10 +147,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 !pip install scikit-learn
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
@@ -357,10 +170,6 @@ y_test_pred = model.predict(X_test)
 mse_train = mean_squared_error(y_train, y_train_pred)
 mse_test = mean_squared_error(y_test, y_test_pred)
 # Visualize the predicted vs actual prices for training set
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
 plt.figure(figsize=(12, 5))
 plt.subplot(1, 2, 1)
 plt.scatter(y_train, y_train_pred)
@@ -384,10 +193,6 @@ Unnamed: 0 CRIM ZN INDUS CHAS NOX RM AGE DIS RAD \
 0 0 0.00632 18.0 2.31 0.0 0.538 6.575 65.2 4.0900 1.0
 1 1 0.02731 0.0 7.07 0.0 0.469 6.421 78.9 4.9671 2.0
 2 2 0.02729 0.0 7.07 0.0 0.469 7.185 61.1 4.9671 2.0
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
 3 3 0.03237 0.0 2.18 0.0 0.458 6.998 45.8 6.0622 3.0
 4 4 0.06905 0.0 2.18 0.0 0.458 7.147 54.2 6.0622 3.0
 TAX PTRATIO B LSTAT Price
@@ -396,10 +201,6 @@ TAX PTRATIO B LSTAT Price
 2 242.0 17.8 392.83 4.03 34.7
 3 222.0 18.7 394.63 2.94 33.4
 4 222.0 18.7 396.90 5.33 36.2
-Expt.No:
-Date:
-PageNo:
-ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1243
 
 
 
@@ -467,13 +268,13 @@ Z = Z.reshape(xx.shape)
 plt.subplot(1, 2, i + 1)
 plt.contour(xx, yy, Z, levels=[0], linewidths=2, colors='red', linestyles='dashed')
 # Show legend
-
 if i == 0:
 handles, labels = scatter.legend_elements()
 plt.legend(handles, labels, title='Classes')
 plt.tight_layout()
 plt.show()
 OUTPUT:
+
 
 
 
@@ -523,7 +324,6 @@ test_size=0.25, random_state=0)
 print('X_train:',np.shape(X_train))
 print('y_train:',np.shape(y_train))
 print('X_test:',np.shape(X_test))
-
 print('y_test:',np.shape(y_test))
 basic_model = Sequential()
 basic_model.add(Dense(units=16, activation='relu', input_shape=(13,)))
@@ -546,6 +346,8 @@ displ.plot()
 OUTPUT:
 Loss = 0.4016321301460266
 Accuracy = 0.8289473652839661
+
+
 
 
 
@@ -695,6 +497,7 @@ Encoded data: [1 2 1 0 3 2]
 
 
 
+
 EXP 10:
 The Back-Propagation Neural Network is a feed-forward network with a quite simple arhitecture. 
 The arhitecture of the network consists of an input layer, one or more hidden layers and an output 
@@ -749,6 +552,11 @@ print ("-----------Epoch-", i+1, "Ends ---------- \n")
 print("Input: \n" + str(X)) 
 print("Actual Output: \n" + str(y)) 
 print("Predicted Output: \n" ,output)
+
+
+
+
+
 
 Experiment-11:
 Write a program to implement k-Nearest Neighbor algorithm to classify the iris data set.
