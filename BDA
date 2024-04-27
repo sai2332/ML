@@ -1,0 +1,1573 @@
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:1
+a)ImplementLinkedList data struture. AIM:To implementLinkedList datastruture. DESCRIPTION:
+The The LinkedList class extends Abstract SequentialList and implements the List
+interface. It provides
+a linked-list data structure. Arrays can be used to store linear data of similar types, but
+arrays have
+following limitations. The size of the arrays is fixed: So we must know the upper limit on the number of
+elements in advance. Also,generally,theallocatedmemoryisequaltotheupperlimitirrespectiveoftheusage. 1)Inserting a new element in an array of elements is expensive, because roomhas to becreated for the
+newelementsandtocreateroom existingelementshaveto shifted. Forexample,inasystemifwemaintainasortedlistofIDsinanarrayid[]. id[] =
+[1000, 1010, 1050, 2000, 2040]. PROGRAM:
+import java.util.*;
+publicclassLinkedListDemo{ publi
+cstaticvoidmain(Stringargs[]){ll.ad
+d("F"); ll.add("B");
+ll.add("D"); ll.add("E");
+ll.add("C");
+ll.addLast("Z");
+ll.addFirst("A"); ll.add(1, "A2");
+System.out.println("Original
+contents of ll: " + ll);
+ll.remove("F");ll.remove(2);
+System.out.println("Contents of ll after deletion: " + ll);
+ll.removeFirst(); ll.removeLast();
+System.out.println("llafterdeletingfirstandlast:"+ll); val = ll.get(2);
+ll.set(2, (String) val + " Changed");
+System.out.println("llafterchange:"+ll);
+}
+}
+OUTPUT:
+Originalcontentsofll:[A,A2,F,B,D,E,C,Z]
+Contentsofllafterdeletion:[A,A2,D,E,C,Z] ll
+after deleting first and last: [A2, D, E, C] ll after
+change: [A2, D, E Changed, C]
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12621.b) implementStackin JAVA
+AIM:ToimplementStackin JAVA
+DESCRIPTION:
+StackisasubclassofVectorthatimplementsastandardlast-in,first-outstack.Stackonly
+defines the default constructor, which creates an empty stack. Stack includes all themethods defined by Vector, and adds several of its own.Java provides predefined stackclass in java.util package with push(),pop(),peek() etc.,methods. PROGRAM:
+importjava.util.*;public
+class stackpro {
+public static void main(String[] args)
+{ Stack<Integer> s=new
+Stack<Integer>();
+Scannersc=newScanner(System.in);inti;
+do{ System.out.println("1:pus
+h");
+System.out.println("2:pop");
+System.out.println("3:peek");
+System.out.println("4:search");
+System.out.println("5:isEmpty");System.out.println("Enter
+the choice");
+i=sc.nextInt();
+switch(i){case 1:
+System.out.println("Entertheelement:");
+int x=sc.nextInt(); s.push(x);
+System.out.println("stackis"+s);
+break; case 2:
+int y=s.pop();
+System.out.println("thevaluepopedis"+y);
+break; case 3:
+int z=s.peek();
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262OUTPUT:
+System.out.println("Thepeekelementis"+z); break;
+case 4:
+System.out.println("Entertheelementtobesearched"); intb=sc.nextInt();
+int a=s.search(b); if(a==-1)
+System.out.println("Elementisnotavailable");else
+System.out.println("Elementisavailableinindex"+a);
+break; case 5:
+System.out.println("Thestackisempty:"+s.empty());
+break; case 6:
+System.exit(0);}
+}while(i<=6);
+}
+}
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice 1
+Entertheelement:
+10 stack is [10]
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice 1
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Enter the element:
+20stackis[10,20]
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice 1
+Entertheelement:30
+stack is [10, 20, 30]
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice3
+Thepeekelementis30
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice2the value
+poped is30
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthe choice
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12624
+Entertheelementtobesearched 20
+Theindexis1
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice 5
+Thestackisempty:false
+1:push
+2:pop
+3:peek
+4:search
+5:isEmpty
+Enterthechoice 6
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12621.c) implementQueuein JAVA
+AIM:To implementQueuein JAVA
+DESCRIPTION:
+AQueueisacollectionforholdingelementspriortoprocessing.BesidesbasicCollection operations, queues provide additional insertion, removal, and inspection operations. TheQueueinterfacefollows. publicinterfaceQueue<E>extendsCollection<E>
+{ E element(); booleanoffer(Ee);
+E peek();
+E poll();
+E remove();
+}
+PROGRAM:
+import java.util.*;
+classTestCollection12{
+public static void main(String
+args[]){ PriorityQueue<String>queue=newPriorityQueue<String>();
+queue.add("Amit");
+queue.add("Vijay");
+queue.add("Karan");
+queue.add("Jai");
+queue.add("Rahul");
+System.out.println("head:"+queue.element());
+System.out.println("head:"+queue.peek());
+System.out.println("iteratingthequeueelements:");
+Iterator itr=queue.iterator();
+while(itr.hasNext()){ System. out.println(itr.next());
+}
+queue.remove();
+queue.poll();
+System.out.println("afterremovingtwoelements:");
+Iterator<String> itr2=queue.iterator();
+while(itr2.hasNext()){ System.out.println(itr2.next())
+;
+}}}
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262head:Amit
+head:Amit iteratingthe
+queue elements:
+Amit
+Jai
+Karan
+Vijay Rahul after
+removing two elements:
+Karan
+Rahul
+Vijay
+OUTPUT:
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12621.d) implementthe Set datastructure. AIM:Toimplementthe Set datastructure. DESCRIPTION:
+ASetisaCollectionthatcannotcontainduplicateelements.Itmodelsthemathematicalset abstraction. The Set interface contains only methods inherited from Collection and adds the restrictionthat
+duplicate elements are prohibited. PROGRAM:
+publicclassSet {
+public static void main(String[] args)
+{ LinkedHashSet<String>lset=newLinkedHashSet<String>()
+;lset.add("pratyusha"); lset.add("pratyusha");//set does not
+allow duplicate values. lset.add("bindu"); lset.add("aruna");
+for(String s:lset)//advanced for loop i.e., iterator. {
+System.out.println(s);
+}
+System.out.println(lset);
+TreeSet<String>tset=newTreeSet<String>();//sortedorder
+tset.add("praneeth"); tset.add("anuradha");
+tset.add("pratyusha"); System.out.println(tset);
+TreeSet<Integer> set=new TreeSet<Integer>();
+set.add(10); set.add(100); set.add(90);
+set.add(18);
+System.out.println(set);
+HashSet<String>hset=newHashSet<String>();//randomorder
+hset.add("pratyusha"); hset.add("anuradha");
+hset.add("srinivas"); hset.add("bindu"); hset.add("vineela");
+hset.add("jyothsna"); System.out.println(hset);
+LinkedHashSet<Integer>a=newLinkedHashSet<Integer>();a.add(14);
+a.add(18);
+a.add(28);
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262a.add(35);
+System.out.println(a.contains(14));//containsreturnsbooleanvalue int
+sum=0; for(Integer i:a)
+{
+sum=sum+i;
+}
+System.out.println(sum);
+}
+}
+OUTPUT:
+[pratyusha, bindu, aruna]
+[anuradha,praneeth,pratyusha] [10, 18, 90, 100]
+[jyothsna,vineela,anuradha,srinivas,bindu,pratyusha]true 95
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12621.e)implement Map Data structure
+AIM:To implementMap Datastructure
+DESCRIPTION:
+Map contains values on the basis of key i.e. key and value pair. Each key and value pair is
+knownasanentry.Mapcontainsonlyuniquekeys.Mapisusefulifyouhavetosearch,update or deleteelements on the basis of key. PROGRAM:
+importjava.util.*;
+publicclass map {
+publicstaticvoidmain(String[]args){
+Scanner sc=new Scanner(System.in);
+TreeMap<String,Double>tmap=new TreeMap<String,Double>();//sorted order
+tmap.put("13a91a0514",80.6);tmap.put("13a91a0528",82.6);tmap.put("13a91a0518",81.6);
+tmap.put("13a91a0535",83.6);
+tmap.put("13a91a0535",83.6);//valuesdonotrepeat
+System.out.println(tmap);
+HashMap<String,Double>hmap=new HashMap<String,Double>();//randomorder
+hmap.put("13a91a0514",80.6);hmap.put("13a91a0518",81.6);hmap.put("13a91a0535",83.6);
+hmap.put("13a91a0528",82.6);
+System.out.println(hmap);
+LinkedHashMap<String,Double>lmap=newLinkedHashMap<String,Double>();//no
+//changelmap.put("13a91a0514",80.6);lmap.put("13a91a0518",81.6);
+lmap.put("13a91a0535",83.6); lmap.put("13a91a0528",82.6);
+System.out.println(lmap);
+//takinginput fromtheuser
+System.out.println("How many elements are there"); int no=sc.nextInt();
+System.out.println("Enter"+no+"keysandvalues");TreeMap<Integer,String>t=newTreeMap<Integer,String>(); for(inti=0;i<no;i++)
+{
+intkey=sc.nextInt();Stringvalue=sc.next();
+t.put(key, value);
+}
+System.out.println(t); //advanced for loop
+for(Map.Entry<Integer,String>e:t.entrySet())
+{
+System.out.println(e.getKey());
+System.out.println(e.getValue());
+}
+}
+}
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262OUTPUT:
+{13a91a0514=80.6,13a91a0518=81.6,13a91a0528=82.6, 13a91a0535=83.6}
+{13a91a0514=80.6,13a91a0518=81.6,13a91a0528=82.6, 13a91a0535=83.6}
+{13a91a0514=80.6,13a91a0518=81.6,13a91a0535=83.6, 13a91a0528=82.6}
+Howmanyelementsarethere 4
+Enter4keysandvalues 1
+14
+2
+18
+3
+35
+4
+28
+{1=14,2=18,3=35,4=28}
+1
+14
+2
+18
+3
+35
+4
+28
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:2
+2) Use web based tools to monitor your Hadoop setup. AIM:Installing Hadoop
+DESCRIPTION:
+Hadoopcanberunin3differentmodes.DifferentmodesofHadoop are
+StandaloneMode
+• DefaultmodeofHadoop
+• HDFSisnotutilizedin thismode.Localfilesystemis usedforinputand output • Usedfordebugging purpose
+• NoCustomConfigurationisrequiredin3hadoop(mapred- site.xml,coresite.xml,hdfs-site.xml) files. • Standalonemodeis muchfasterthanPseudo-distributed mode. PseudoDistributedMode(SingleNode Cluster) • Configuration is required in given 3 files for this mode Replicationfactoryis
+one for HDFS. • HereonenodewillbeusedasMasterNode/DataNode/JobTracker/Task Tracker • UsedforRealCodetotest in HDFS. • Pseudodistributedclusterisaclusterwherealldaemonsarerunningonone node
+itself. Fullydistributed mode(ormultiple nodecluster) • Thisis aProduction Phase
+• Dataareusedanddistributedacrossmanynodes. • DifferentNodeswillbeusedasMasterNode/DataNode/JobTracker/Task Tracker
+PROGRAM:
+Installation of Hadoop
+Step1:VerifyingJAVA Installation
+JavamustbeinstalledonyoursystembeforeinstallingHive.Letusverifyjava installation
+using the following command:
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262$ java –version
+IfJavaisalreadyinstalledonyoursystem,yougettoseethefollowingresponse: java
+version "1.7.0_71"
+Java(TM) SE Runtime Environment (build 1.7.0_71-b13)
+JavaHotSpot(TM)ClientVM(build25.0-b02,mixedmode)
+If java is not installed in your system, then follow the steps given below for
+installingjava. Installing Java
+StepI:
+Downloadjava(JDK<latestversion>- X64.tar.gz)byvisitingthefollowinglinkhttp://www.oracle.com/technetwork/java/javase/downloads/jdk7- downloads1880260.html. Thenjdk-7u71-linux-x64.tar.gzwillbedownloadedonto your system. StepII:
+Generally you will find the downloaded java file in the Downloads folder. Verify it andextract the jdk-7u71-linux-x64.gz file using the following commands. $cd Downloads/
+$ ls
+jdk-7u71-linux-x64.gz
+$tarzxfjdk-7u71-linux-x64.gz
+$ ls
+jdk1.7.0_71jdk-7u71-linux-x64.gz
+StepIII:
+Tomakejava availableto all theusers, you haveto move itto the location
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262“/usr/local/”.Openroot,andtypethefollowingcommands. $ supassw
+ord:
+#mvjdk1.7.0_71/usr/local/ #
+exit
+StepIV:
+ForsettingupPATHandJAVA_HOMEvariables,addthefollowingcommandsto ~/.bashrcfile. exportJAVA_HOME=/usr/local/jdk1.7.0_71
+export PATH=$PATH:$JAVA_HOME/bin
+Nowapplyall thechanges intothe currentrunningsystem. $source ~/.bashrc
+StepV:
+Usethe following commandsto configurejavaalternatives:
+#alternatives--install/usr/bin/javajavausr/local/java/bin/java2
+#alternatives--install/usr/bin/javacjavacusr/local/java/bin/javac2 #
+alternatives --install /usr/bin/jar jar usr/local/java/bin/jar 2
+#alternatives--setjavausr/local/java/bin/java
+#alternatives--setjavacusr/local/java/bin/javac #
+alternatives --set jar usr/local/java/bin/jar
+Nowverifytheinstallationusingthecommandjava-versionfromtheterminalas explained above. Step2: VerifyingHadoop Installation
+HadoopmustbeinstalledonyoursystembeforeinstallingHive.LetusverifytheHadoop installationusing the following command:
+$hadoopversion
+Compiledbyhortonmuon2013-10-07T06:28Z
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Compiledwithprotoc2.5.0
+Fromsourcewith checksum 79e53ce7994d1628b240f09af91e1af4
+IfHadoopisnotinstalledonyoursystem,thenproceedwiththefollowingsteps:
+Downloading Hadoop
+DownloadandextractHadoop2.4.1fromApacheSoftwareFoundationusingthefollowing
+commands. $ supassw
+ord:
+#cd /usr/local
+#wgethttp://apache.claz.org/hadoop/common/hadoop-2.4.1/
+hadoop- 2.4.1.tar.gz#tarxzfhadoop- 2.4.1.tar.gz
+#mvhadoop-2.4.1/*tohadoop/ #
+exit
+InstallingHadoopinPseudoDistributedMode
+Thefollowing steps areused to installHadoop 2.4.1 inpseudo distributed mode. StepI: Settingup Hadoop
+YoucansetHadoopenvironmentvariablesbyappendingthefollowingcommandsto ~/.bashrcfile. exportHADOOP_HOME=/usr/local/hadoop
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+exportHADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/nativeexport
+PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+Now apply all the changes into the current running system. $source ~/.bashrc
+StepII:HadoopConfiguration
+You can find all the Hadoop configuration files in the location“$HADOOP_HOME/etc/hadoop”. You need to make suitable changes in thoseconfiguration files according to your Hadoop infrastructure. $cd $HADOOP_HOME/etc/Hadoop
+InordertodevelopHadoopprogramsusingjava,youhavetoresetthejavaenvironment
+variables in hadoop-env.sh file by replacing JAVA_HOME value with the location of
+java in your system. exportJAVA_HOME=/usr/local/jdk1.7.0_71
+Givenbelowarethelist offiles thatyou haveto editto configureHadoop.core-site.xml
+The core-site.xml file contains information such as the port number used for Hadoopinstance,memoryallocatedforthefilesystem,memorylimitforstoringthedata,andthe size of
+Read/Write buffers. Openthecore-site.xmlandaddthefollowingpropertiesinbetweenthe<configuration> and</configuration> tags. <configuration>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:9000</value>
+</property>
+</configuration>
+hdfs-site.xml
+The hdfs-site.xml file contains information such as the value of replication data, thenamenodepath,andthedatanodepathofyourlocalfilesystems.Itmeanstheplacewhere youwant to store the Hadoop infra.
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Letusassumethefollowingdata.dfs.replication(datareplicationvalue)=
+1 (In the following path /hadoop/ is the user name. hadoopinfra/hdfs/namenodeisthedirectorycreatedbyhdfsfilesystem.) namenode path = //home/hadoop/hadoopinfra/hdfs/namenode (hadoopinfra/hdfs/datanode is the
+directory created by hdfs file system.) datanode path =
+//home/hadoop/hadoopinfra/hdfs/datanode
+Openthisfileandaddthefollowingpropertiesinbetweenthe<configuration>, </configuration>tagsinthisfile. <configuration>
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+<property>
+<name>dfs.name.dir</name>
+<value>file:///home/hadoop/hadoopinfra/hdfs/namenode</value>
+</property>
+<property>
+<name>dfs.data.dir</name>
+<value>file:///home/hadoop/hadoopinfra/hdfs/datanode</value>
+</property>
+</configuration>
+Note:Intheabovefile,allthepropertyvaluesareuser-definedandyoucanmakechanges accordingtoyour Hadoop infrastructure. yarn-site.xml
+This file is used to configure yarn into Hadoop. Open the yarn-site.xml file and add the
+following properties in between the <configuration>, </configuration> tags in this file. <configuration>
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property></configuration>
+mapred-site.xml
+This file is used to specify which MapReduce framework we are using. By default, Hadoop contains a template of yarn-site.xml. First of all, you need to copy the file frommapred-site,xml.template to mapred-site.xml file using the following command. $cpmapred-site.xml.templatemapred-site.xml
+Openmapred-site.xmlfileandaddthefollowingpropertiesinbetweenthe
+<configuration>,</configuration>tagsinthisfile.
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262<configuration>
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+</property>
+</configuration>
+VerifyingHadoop Installation
+ThefollowingstepsareusedtoverifytheHadoopinstallation.StepI: Name
+Node Setup
+Setupthenamenodeusingthecommand“hdfsnamenode-format”asfollows.$ cd ~
+$hdfsnamenode-format
+Theexpected resultis as follows. 10/24/1421:30:55INFOnamenode.NameNode:STARTUP_MSG:
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:host=localhost/192.168.1.11
+STARTUP_MSG: args = [-format]
+STARTUP_MSG: version = 2.4.1
+...... 10/24/1421:30:56INFO common.Storage:Storage directory
+/home/hadoop/hadoopinfra/hdfs/namenodehasbeensuccessfullyformatted.10/24/14
+21:30:56 INFO namenode.NNStorageRetentionManager: Going toretain 1 images
+with txid>= 0
+10/24/1421:30:56INFOutil.ExitUtil:Exitingwithstatus0
+10/24/1421:30:56INFO namenode.NameNode: SHUTDOWN_MSG:
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at localhost/192.168.1.11
+************************************************************/
+StepII:VerifyingHadoop dfs
+Thefollowingcommandisusedtostartdfs.Executingthiscommandwillstartyour Hadoop filesystem. $start-dfs.sh
+Theexpectedoutputisasfollows:10/24/14
+21:37:56
+Startingnamenodeson[localhost]
+localhost: starting namenode, logging to /home/hadoop/hadoop- 2.4.1/logs/hadoophadoop-namenode-localhost.out
+localhost: starting datanode, logging to /home/hadoop/hadoop- 2.4.1/logs/hadoophadoop-datanode-localhost.outStarting secondary namenodes
+[0.0.0.0] Step IV: Accessing Hadoop on Browser
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262ThedefaultportnumbertoaccessHadoopis50070.UsethefollowingurltogetHadoop services onyour browser. http://localhost:50070/Hadoop Browser
+StepV:Verifyallapplicationsforcluster
+The default port number to access all applications of cluster is 8088. Use the followingurl to visit this service. http://localhost:8088/All
+Application
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:3
+3.implement Adding, Retrieving, Deleting files and directories
+AIM:ToimplementAdding,Reteriving,Deletingfilesanddirectories
+DESCRIPTION:
+TheFileSystem(FS)shellincludesvariousshell-likecommandsthatdirectlyinteractwiththe
+Hadoop Distributed File System (HDFS) as well as other file systems that Hadoop supports, such as Local FS, HFTP FS, S3 FS, and others.The following commands are used for
+interacting with HDFS. cat
+Usage:hdfsdfs-catURI[URI...] Copies
+source paths to stdout. Example: • hdfsdfs-cathdfs://nn1.example.com/file1 hdfs://nn2.example.com/file2
+• hdfsdfs-catfile:///file3/user/hadoop/file4
+Exit Code:
+Returns0onsuccess and-1on error. chgrp
+Usage:hdfsdfs -chgrp[-R]GROUP URI[URI ...]
+Changegroupassociationoffiles.Theusermustbetheowneroffiles,orelseasuper- user. Additional information is in the Permissions Guide. Options
+• The-Roptionwillmakethechange recursivelythroughthedirectory structure. chmod
+Usage:hdfsdfs-chmod[-R]<MODE[,MODE]...|OCTALMODE>URI[URI...]
+Changethepermissionsoffiles.With-R,makethechangerecursivelythroughthe
+directory structure. The user must be the owner of the file, or else a super-user. Additionalinformationis inthe Permissions Guide. Options
+• The-Roptionwillmakethechange recursivelythroughthedirectory structure. chown
+Usage:hdfsdfs-chown[-R][OWNER][:[GROUP]]URI[URI]
+Changetheowneroffiles.Theusermustbeasuper-user.Additionalinformationisin the
+Permissions Guide. Options
+• The-Roptionwillmakethechange recursivelythroughthedirectory structure.
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262copyFromLocal
+Usage:hdfsdfs-copyFromLocal<localsrc>URI
+Similartoputcommand,exceptthatthesourceisrestrictedtoalocalfilereference. Options: • The-foptionwilloverwritethedestinationifitalreadyexists. copyToLocal
+Usage:hdfsdfs-copyToLocal[-ignorecrc][-crc] URI<localdst>
+Similartogetcommand, exceptthatthedestinationisrestrictedto alocalfilereference. count
+Usage:hdfsdfs-count[-q] <paths>
+Countthenumberofdirectories,filesandbytesunderthepathsthatmatchthespecified file
+pattern. The output columns with -count are: DIR_COUNT, FILE_COUNT, CONTENT_SIZE FILE_NAME
+The output columns with -count -q are: QUOTA, REMAINING_QUATA, SPACE_QUOTA,REMAINING_SPACE_QUOTA,DIR_COUNT,FILE_COUNT, CONTENT_SIZE, FILE_NAME
+Example: • hdfsdfs-counthdfs://nn1.example.com/file1hdfs://nn2.example.com/file2
+• hdfsdfs-count-qhdfs://nn1.example.com/file1
+Exit Code:
+Returns0onsuccess and-1on error. cp
+Usage:hdfsdfs -cp[-f] URI[URI...] <dest>
+Copyfilesfromsourcetodestination.Thiscommandallowsmultiplesourcesaswellin whichcase the destination must be a directory. Options: • The-foptionwilloverwritethedestinationifitalreadyexists. Example: • hdfsdfs-cp/user/hadoop/file1 /user/hadoop/file2
+• hdfsdfs-cp/user/hadoop/file1/user/hadoop/file2/user/hadoop/dir
+Exit Code:
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Returns0onsuccess and-1on error. PROGRAM:InteractingwithLocalFileSystemCommands:pon
+ny@ubuntu:~$ cat >cseaa hello how are you
+ponny@ubuntu:~$ cat cseaa hello how are you
+ponny@ubuntu:~$ ls
+AirPassengers.csvPicturesbig.txtprotobuf-2.4.1classesprotobuf-2.4.1.tar.gzcore
+protobuf-2.5.0 cseaa protobuf-2.5.0.tar.gz cseblearners
+Public data10.txt PVPCollege
+Data1.txt R
+ponny@ubuntu:~$clear
+ponny@ubuntu:~$cat>cseaahihowareyou
+ponny@ubuntu:~$ cat cseaa hi how are you
+ponny@ubuntu:~$ mkdirDpsponny@ubunt
+u:~$ cd Dpsponny@ubuntu:~/Dps$ cd\
+ponny@ubuntu:~$ cd
+Dpsponny@ubuntu:~/Dps$ mkdir train
+ponny@ubuntu:~/Dps$ cd train
+ponny@ubuntu:~/Dps/train$ cd\
+ponny@ubuntu:~$ ls
+AirPassengers.csvpa.txt~big.txtPicturesclassesprotobuf-2.4.1coreprotobuf-2.4.1.tar.gz cseaaprotobuf-2.5.0 cseblearners protobuf-2.5.0.tar.gzdata10.txtPublic
+Data1.txtPVP College
+ponny@ubuntu:~$ clear
+ponny@ubuntu:~$ cd
+Dpsponny@ubuntu:~/Dps
+$ ls train
+ponny@ubuntu:~/Dps$cd\
+ponny@ubuntu:~$ jps4520
+4662 FsShell
+3660 TaskTracker
+2832NameNode
+4698 Jps
+3328 SecondaryNameNode
+3412 JobTracker
+3079DataNode
+InteractingwithHadoopFileSystemCommands
+ponny@ubuntu:~$ hadoop fs –ls
+Found2items
+-rw-r--r--1ponnysupergroup 15 2016-08-19 10:32
+/user/ponny/hadooplab
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262drwxr-xr-x-ponnysupergroup 0 2016-08-18 15:38
+/user/ponny/training
+ponny@ubuntu:~$hadoopfs-mkdirhadoop
+Warning:$HADOOP_HOMEis deprecated. ponny@ubuntu:~$hadoopfs-copyFromLocalcseahadoopWarning:$HADOOP_HOMEis
+deprecated. ponny@ubuntu:~$hadoopfs-cathadoop\cseaWarning:$HADOOP_HOMEisdeprecated. cat:
+File does not exist: /user/ponny/hadoopcsea
+ponny@ubuntu:~$hadoopfs-cathadoop/csea
+Warning: $HADOOP_HOME is deprecated. hi this is hadoop lab
+ponny@ubuntu:~$hadoopfs-copyToLocalhadoop/cseacseloc Warning:
+$HADOOP_HOME is deprecated. ponny@ubuntu:~$catcseloc
+hi this is hadoop lab
+ponny@ubuntu:~$
+1. create"training"fileinlocalsystemandcopythatfiletohdfsdirectoryusing"put"cmdponny@ubuntu:~$ cat >training
+Hello Welcome to the world of Bigdata
+ponny@ubuntu:~$hadoopfs-puttraininghadoop
+Warning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$ hadoop fs -ls hadoopWarning:
+$HADOOP_HOME is deprecated. Found2items
+-rw-r--r--1ponnysupergroup 222016-08-1910:55
+/user/ponny/hadoop/csea
+-rw-r--r--1ponnysupergroup 382016-08-1911:04
+/user/ponny/hadoop/training
+ponny@ubuntu:~$hadoopfs-cathadoop/training
+Warning: $HADOOP_HOME is deprecated. HelloWelcometotheworldofBigdata
+2. createItdirectoryinHdfsandcopy"csea"filetohdfsItdirectory
+ponny@ubuntu:~$ hadoop fs -mkdir IT
+Warning:$HADOOP_HOMEis deprecated. ponny@ubuntu:~$catcseahithisishadooplabponny@ubuntu:~$hadoopfs-copyFromLocalcseaITWarning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$hadoopfs-catIT/cseaWarning:$HADOOP_HOMEisdeprecated. hi
+this is hadoop lab
+3. createecedirectoryinHdfsandcopytrainingbigdatafilefromcsehdfsdirecttoecehdfsdirectoryponny@ubuntu:~$ hadoop fs -mkdir ECE
+Warning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$hadoopfs-cphadoop/cseaECE
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Warning:$HADOOP_HOMEis deprecated. ponny@ubuntu:~$hadoopfs-catECE/cseaWarning:$HADOOP_HOMEisdeprecated. hi
+this is hadoop lab
+mv command:
+ponny@ubuntu:~$ cat >mvnew hi this is about mv command
+ponny@ubuntu:~$ cat mvnew hi this is about mv command
+ponny@ubuntu:~$hadoopfs-copyFromLocalmvnewHadoop
+Warning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$ hadoop fs -mv hadoop/mvnew ECE
+Warning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$ hadoop fs -ls Hadoop
+Warning:$HADOOP_HOMEisdeprecated. Found 3 items
+-rw-r--r--1ponnysupergroup 22 2016-08-19 10:55
+/user/ponny/hadoop/csea
+-rw-r--r--1ponnysupergroup 38 2016-08-19 11:04
+/user/ponny/hadoop/training
+-rw-r--r--1ponnysupergroup 44 2016-08-19 11:04
+/user/ponny/hadoop/mvnewponny@ubuntu:~$hadoop fs-lsHadoopWarning:
+$HADOOP_HOMEisdeprecated
+Found 2 items
+-rw-r--r--1ponnysupergroup 22 2016-08-19 10:55
+/user/ponny/hadoop/csea
+-rw-r--r--1ponnysupergroup 38 2016-08-19 11:04
+/user/ponny/hadoop/training
+4.CopytrainingbigdatafilefromECEHDFSDesktop(localfilesystem)
+ponny@ubuntu:~$ hadoop fs -copyToLocalhadoop/training Desktop
+Warning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$hadoopfs-copyFromLocal/home/ponny/Desktop/Cancerpatientchi.RECEWarning: $HADOOP_HOME is deprecated. ponny@ubuntu:~$ hadoop fs -ls ECE
+Warning:$HADOOP_HOMEisdeprecated. Found 3 items
+-rw-r--r--1ponnysupergroup 460 2016-08-19 12:19
+/user/ponny/ECE/Cancerpatientchi.R
+-rw-r--r--1ponnysupergroup 22 2016-08-19 11:30
+/user/ponny/ECE/csea
+-rw-r--r--1ponnysupergroup 27 2016-08-19 11:46
+/user/ponny/ECE/mvnewponny@ubuntu:~$hadoopfs-rmrIT Warning:
+$HADOOP_HOME is deprecated. Deletedhdfs://localhost:54310/user/ponny/IT
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:4
+4. . Run a basic Word Count MapReduce program to understand MapReduce ParadigmAIM:To implementtheFifosusingIPC
+DESCRIPTION:
+MapReduce is a processing technique and a program model for distributed computingbasedonjava. The MapReduce algorithm contains two important tasks, namely Map and Reduce. Maptakes a set of data and converts it into another set of data, where individual elements arebrokendown into tuples (key/value pairs). Secondly, reduce task, which takes the output fromamapasaninputandcombinesthosedatatuplesintoasmallersetoftuples.Asthesequenceofthename
+MapReduce implies, the reduce task is always performed after the map job. WordCount isasimple application that counts the number of occurrences of each word in a given input set.Thisworks with a local-standalone, pseudo-distributed or fully-distributed Hadoop installationPROGRAM
+Driver code:
+importorg.apache.hadoop.fs.Path; importorg.apache.hadoop.io.IntWritable;
+importorg.apache.hadoop.io.Text;importorg.apache.hadoop.mapreduce.Job;
+importorg.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+importorg.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+publicclassWordCountDriver
+{ publicstaticvoidmain(String[]args)throwsException{
+String input = "test1.txt";
+String output = "out";
+// Create a new job
+Jobjob=newJob();
+// Set job name to locate it in the distributed environment
+job.setJarByClass(WordCountDriver.class);job.setJobName("Word
+Count");
+//Set inputand outputPath, notethat weusethedefault input format
+//whichisTextInputFormat(eachrecordisalineofinput)
+FileInputFormat.addInputPath(job, newPath(input));
+FileOutputFormat.setOutputPath(job, newPath(output));
+//SetMapperandReducerclassjob.setMapperClass(WordCountMapper.class);
+job.setReducerClass(WordCountReducer.class);
+//SetOutputkeyandvaluejob.setOutputKeyClass(Text.class);
+job.setOutputValueClass(IntWritable.class);
+System.exit(job.waitForCompletion(true) ? 0 : 1);
+}
+}
+MapperClass:
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+importorg.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+publicclassWordCountMapperextendsMapper<LongWritable,Text,Text, IntWritable>{
+privatestaticfinalIntWritableone=newIntWritable(1); private
+Text word = new Text();
+protectedvoidmap(LongWritablekey,Textvalue,Contextcontext)throws
+IOException, InterruptedException
+{
+String line = value.toString();
+String[]words=line.split("");for
+(String w : words) { word.set(w);
+context.write(word, one);
+}
+}}
+Reducer:
+importjava.io.IOException;
+import java.util.Iterator;
+importorg.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+importorg.apache.hadoop.mapreduce.Reducer;
+public class WordCountReducer
+extendsReducer<Text, IntWritable,Text, IntWritable>{ protectedvoidreduce(Textkey,Iterable<IntWritable>values,Contextcontext) throws IOException, InterruptedException {
+int sum =0;
+for(IntWritablevalue:values)
+{
+sum value.get();
+}
+context.write(key,newIntWritable(sum));
+}
+}
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262OUTPUT:
+Input File:
+Welcome every1. WelcometoHadooplab. Todaywearegoing towork on Hadoop MapReduceconcept. OutputFile:
+MapReduce 1
+Today 1
+Welcome 2 are
+1
+concept. 1
+every1 1. going 1
+Hadoop 2 lab. 1 on
+1 to
+2
+we 1
+work 1
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:6
+6. Use MapReduce to find the shortest path between two people in a social graph. AIM:UseMapReducetofindtheshortestpathbetweentwopeopleinasocialgraph
+DESCRIPTION:
+theapproachmentionedinthehint.Here'sastep-by-stepguide:
+1. DataRepresentation:Representthesocial graphusinganadjacency list,whereeachnodestores the distance from the original node and a back pointer to the original node. You can store this informationinakey-valueformat,wherethekeyrepresentsthenodeID,andthevaluecontains the distanceandback pointer information. 2. Map Function: The map function will propagate the distance and backpointerinformation to the neighboring nodes. It takes the current node as input andemitskeyvalue pairs for eachneighboringnode.Theemittedkeyrepresentstheneighboringnode,andthevaluecontainsthe updated distance and back pointer. 3. ReduceFunction:Thereducefunctionmergestheinformationreceivedfromdifferentmappers for the same node. It updates the distance and back pointer based on thereceivedvalues and emits the updated information for the node. 4. Iteration:Repeatthemap- reduceprocessuntilthetargetnodeisreached.Ineachiteration,the map functionpropagates the updated distance and back pointer, and the reduce functionupdatesthe state of the graph. PROGRAM
+importjava.io.IOException;importjava.util.*;
+importorg.apache.hadoop.conf.Configuration;importorg.apache.hadoop.fs.Path; import
+org.apache.hadoop.io.*; import org.apache.hadoop.mapreduce.*;
+publicclassShortestPathMapperextendsMapper<LongWritable,Text,Text, Text>{
+publicvoidmap(LongWritablekey,Textvalue,Contextcontext)throws
+IOException, InterruptedException {
+String line = value.toString();
+String[]nodes=line.split("\t");
+String node = nodes[0];
+String[]fields= nodes[1].split("\\|");
+intdistance=Integer.parseInt(fields[0]);
+String backPointer = fields[1];
+// Emit thenodeitself
+context.write(newText(node),newText(distance+"|"+backPointer));
+//Emittheadjacentnodes
+if(!backPointer.equals("null"))
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262{
+String[]neighbors=nodes[1].split("\\|",2)[1].split(","); for
+(String neighbor : neighbors) {
+context.write(newText(neighbor),newText((distance+1) +"|"+ node));
+}
+}
+}
+publicclassShortestPathReducerextendsReducer<Text,Text,Text,Text>{
+publicvoidreduce(Text key, Iterable<Text>values,Contextcontext)throws
+IOException, InterruptedException { int minDistance =
+Integer.MAX_VALUE;
+StringbackPointer= null;
+//Iteratethroughallvaluesforthecurrentnode for
+(Text value : values)
+{ String[]fields=value.toString().split("\\|");
+int distance = Integer.parseInt(fields[0]);
+String bp = fields[1];
+//Updatetheminimumdistanceandbackpointer if
+(distance <minDistance)
+{ minDistance=distance;
+backPointer = bp;
+}
+}
+// Emit the updated information for the current node
+context.write(key,newText(minDistance+"|"+backPointer));
+}
+}
+publicclassShortestPath{ publicstaticvoidmain(String[]args)throws
+Exception{ if
+(args.length != 4)
+{ System.err.println("Usage:ShortestPath<inputPath><outputPath>
+<startNode><targetNode>");
+System.exit(2);
+}
+String inputPath = args[0];
+StringoutputPath=args[1];
+String startNode = args[2];
+StringtargetNode= args[3];
+Configuration conf = new Configuration(); conf.set("targetNode", targetNode);
+while(!isTargetReached){
+Job job = Job.getInstance(conf, "Shortest Path");
+job.setJarByClass(ShortestPath.class);
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262job.setMapperClass(ShortestPathMapper.class);
+job.setReducerClass(ShortestPathReducer.class);
+job.setOutputKeyClass(Text.class);
+job.setOutputValueClass(Text.class);
+job.setMapOutputKeyClass(Text.class);
+job.setMapOutputValueClass(Text.class);
+job.setInputFormatClass(TextInputFormat.class);
+job.setOutputFormatClass(TextOutputFormat.class);
+FileInputFormat.addInputPath(job, new Path(inputPath));
+FileOutputFormat.setOutputPath(job,newPath(outputPath));
+job.waitForCompletion(true);
+// Check if the target node has been reached
+isTargetReact=job.getCounters().findCounter(Counter.TARGET_REACHED).ge
+tValue() == 1;
+//Updatetheinputandoutputpathsforthenextiteration
+inputPath = outputPath;
+outputPath= outputPath + "_temp";
+}
+Output
+:
+}
+System.exit(0);
+}
+javaOutputReader<outputPath><targetNod
+e>Node1 distance1|backPointer1
+Node2
+distance2|backPointer2Nod
+e3 distance3|backPointer3
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:7
+7 . Implement Friends-of-friends algorithm in MapReduce
+Aim:ToImplement Friends-of-friendsalgorithminMapReduce. Description:
+The Friends-of-Friends (FoF) algorithm is a popular method used in social network analysistofindconnectionsbetweenindividualsbasedonmutualfriends.IntheMapReduceparadigm,wecanimplement the FoF algorithm in a distributed and scalable manner. Here's a high-level overviewof how you can implement the FoF algorithm in MapReduce:
+Mapphase:
+1. Input:Eachinput recordconsists ofauser IDand alist oftheirfriends. 2. Emitintermediatekey-valuepairsforeachfriendpairintheinputrecord.Foreachfriend pair (A, B), emit (A, B) and (B, A) as the intermediate keys and the user ID as the value. Reducephase:
+1. Input:Eachinputrecordconsists ofauser IDand alistoffriend pairs. 2. Foreachfriendpair(A,B)intheinputrecord,emitintermediatekey-valuepairswhere the keyis A and the value is B. 3. Grouptheintermediatekey-valuepairsby the key (A). 4. Foreachgroup,iteratethroughthevalues(B)andcreatealistofuniquefriendsforeach user. 5. Emitthefinaloutputkey-valuepairswherethekeyisauserIDandthevalueisthelistof unique
+friends (friends-of-friends). Program:
+importjava.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+importorg.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+importorg.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262publicclassFriendsOfFriends{ publicstaticclassFoFMapperextendsMapper<
+Object,Text,Text,Text>{ private Text user = new Text();
+privateText friend=new Text();
+publicvoidmap(Objectkey,Textvalue,Contextcontext)
+throws IOException, InterruptedException
+{ String[]parts=value.toString().split("\t"); if
+(parts.length == 2) {
+StringuserId=parts[0];
+String[]friends=parts[1].split(",");
+user.set(userId);
+//Emit friend pairs
+for (int i = 0; i<friends.length; i++)
+{for(intj=i+1;j<friends.length;j++){ friend. set(friends[i]);context.write(friend,user);
+friend.set(friends[j]);context.write(friend, user);
+}
+}
+}
+}
+}
+publicstaticclassFoFReducerextendsReducer<Text,Text,Text,Text>{ private
+Text result = new Text();
+publicvoidreduce(Textkey,Iterable<Text>values,Contextcontext)
+throws IOException, InterruptedException
+{Set<String>fofs =newHashSet<>();
+//Iteratethroughfriendpairsandfindfriends-of-friends for
+(Text friend : values) {
+fofs.add(friend.toString());
+}
+//Emit thefinal output
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262result.set(fofs.toString());
+context.write(key,result);
+}
+}
+publicstaticvoidmain(String[]args)throwsException{
+Configuration conf = new Configuration();
+Job job = Job.getInstance(conf, "Friends-of-Friends");
+job.setJarByClass(FriendsOfFriends.class);
+job.setMapperClass(FoFMapper.class);
+job.setReducerClass(FoFReducer.class);
+job.setOutputKeyClass(Text.class);
+job.setOutputValueClass(Text.class);
+FileInputFormat.addInputPath(job, new Path(args[0]));
+FileOutputFormat.setOutputPath(job,newPath(args[1]));
+System.exit(job.waitForCompletion(true) ? 0 : 1);
+}
+}
+Output:
+Inputdata:
+A B,C,D
+B A,C,E
+C A,B
+Output data:
+A[C,B]
+B [A]
+C [A
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:8
+8. ImplementaniterativePageRankgraphalgorithminMapReduce. Aim:ToImplementaniterativePageRankgraphalgorithminMapReduce. Description:
+Inthisimplementation,eachnode'sPageRankvalueisemittedalongwithitsadjacencylist.The reduceraccumulates the contributions from neighbors and calculates the new PageRank. It alsoemitstheupdated PageRank and the adjacency list for the next iteration. The algorithm continues iterating until the PageRank values converge, which is checkedbycomparingthedifferencebetweentheoldandnewPageRankvalueswiththeepsilonthreshold. Program:
+importjava.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+importorg.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+importorg.apache.hadoop.io.DoubleWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+importorg.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+public class PageRank {
+publicstaticclassPageRankMapperextendsMapper<Object,Text,Text,Text>{ @Ov
+erride
+publicvoidmap(Objectkey,Textvalue,Contextcontext)throwsIOException, InterruptedException{
+//SplittheinputlineintonodeID,currentPageRank,andadjacencylist
+String[] parts = value.toString().split("\t");
+StringnodeId =parts[0];
+doublepageRank=Double.parseDouble(parts[1]);
+String[] neighbors = parts[2].split(",");
+//EmitthenodeID anditscurrentPageRank
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262context.write(newText(nodeId),newText("!" + pageRank));
+//EmitthePageRankcontributiontoeachneighbor if
+(neighbors.length> 0)
+{ doublecontribution=pageRank/neighbors.length;
+for(String neighbor : neighbors) {
+context.write(newText(neighbor),newText(String.valueOf(contribution)));
+}
+}
+}
+}
+publicstaticclassPageRankReducerextendsReducer<Text,Text,Text,Text>{ private
+static final double DAMPING_FACTOR = 0.85;
+privatestaticfinaldoubleEPSILON=0.001;
+@Override
+publicvoidreduce(Textkey,Iterable<Text>values,Contextcontext)throwsIOException, InterruptedException {
+StringnodeId=key.toString();
+double sumPageRank = 0.0;
+double oldPageRank = 0.0;
+String adjacencyList = "";
+//Iterateoverthevaluesassociatedwiththecurrentkey for
+(Text value : values) {
+Stringval=value.toString(); if
+(val.startsWith("!")) {
+//RetrievethecurrentPageRank
+oldPageRank=Double.parseDouble(val.substring(2));
+}elseif(val.startsWith("#")){
+// Retrieve the adjacency list
+adjacencyList=val.substring(1);
+}else {
+//AccumulatethePageRankcontributionsfromneighborssumPageRank
++= Double.parseDouble(val);
+}
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262}
+//CalculatethenewPageRankusing thePageRank formula
+doublenewPageRank=(1-DAMPING_FACTOR)+DAMPING_FACTOR*
+sumPageRank;
+//EmitthenodeID anditsnew PageRank
+context.write(newText(nodeId),new Text(String.valueOf(newPageRank)));
+// Emit the node ID and its adjacency list for the next iteration
+context.write(newText(nodeId),newText("#"+adjacencyList));
+//DistributethePageRankcontributiontoneighbors if
+(!adjacencyList.isEmpty()) {
+String[]neighbors =adjacencyList.split(",");
+doublecontribution=newPageRank/neighbors.length; for
+(String neighbor : neighbors) {
+context.write(newText(neighbor),newText(String.valueOf(contribution)));
+}
+}
+//Checkfor convergence
+doublediff=Math.abs(newPageRank-oldPageRank); if
+(diff > EPSILON) {
+//ContinuetheiterationsifthePageRankhasnotconverged
+context.getCounter("PageRank","Converged").setValue(0);
+}
+}
+}
+publicstaticvoidmain(String[]args)throwsException{
+Configuration conf = new Configuration();
+Job job = Job.getInstance(conf, "PageRank");
+job.setJarByClass(PageRank.class);
+job.setMapperClass(PageRankMapper.class);
+job.setReducerClass(PageRankReducer.class);
+job.setOutputKeyClass(Text.class);
+job.setOutputValueClass(Text.class);
+FileInputFormat.addInputPath(job,newPath(args[0]));
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262FileOutputFormat.setOutputPath(job,new Path(args[1]));
+// Set the initial value for convergence checking
+job.getCounter("PageRank","Converged").setValue(1);
+//Runthejobiterativelyuntilconvergence boolean
+converged = false;
+int iteration = 0;
+while(!converged){ iteration
+++;
+job.waitForCompletion(true);
+longconvergedCount=job.getCounters().findCounter("PageRank", "Converged").getValue();
+converged=(convergedCount==0);
+//Updatetheinputforthenextiteration if
+(!converged) {
+String currentOutputPath = args[1] + "/iteration_" + iteration;
+StringnextInputPath=args[1]+"/iteration_"+(iteration+1);
+Configuration nextConf = new Configuration();
+Job nextJob = Job.getInstance(nextConf, "PageRank");
+nextJob.setJarByClass(PageRank.class);
+nextJob.setMapperClass(PageRankMapper.class);
+nextJob.setReducerClass(PageRankReducer.class);
+nextJob.setOutputKeyClass(Text.class);
+nextJob.setOutputValueClass(Text.class);
+FileInputFormat.addInputPath(nextJob,newPath(currentOutputPath));
+FileOutputFormat.setOutputPath(nextJob, new Path(nextInputPath));
+job = nextJob;
+}
+}
+System.exit(0);
+}
+}
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Output:
+hadoopfs-cat<output_directory_path>/iteration_<iteration_number>/part-*
+Input:
+A 1.0 B,C
+B 1.0 C
+C 1.0 A
+ThecorrespondingoutputafterrunningthePageRankcodeusingHadoopMapReducewoulddependonthe number of iterations until convergence. Each iteration represents an updated PageRankvaluefor each node. Output:
+A 1.0
+B 0.45
+C 0.85
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:9
+9.Perform anefficient semi-joinin MapReduce
+Aim:ToPerform anefficient semi-joinin MapReduce. Description:
+InMapReduce,performingasemi-joinefficientlycanbe achievedusingtheMap-Side Jointechnique.ThistechniqueleveragesthedistributednatureofMapReducetoreducetheamount of
+datashuffledacrossthenetworkduringthejoinoperation.Itisparticularlyefficientwhenone dataset issignificantly smaller than the other. Program:
+importjava.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+importorg.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+importorg.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+importorg.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+public class SemiJoin {
+publicstaticclassSemiJoinMapperextendsMapper<Object,Text,Text,Text>{ private
+Set<String>joinKeys = new HashSet<>();
+@Override
+protectedvoidsetup(Contextcontext)throwsIOException, InterruptedException{
+//Loadthesmallerdatasetintomemory
+//Inthisexample,weassumethesmallerdatasetisalreadyavailableinafile
+//You canmodify thispart toload thedataset fromany other source
+//Forsimplicity,weloadthedatasetintoaSetforefficientlookups
+joinKeys.add("key1");
+joinKeys.add("key2");
+joinKeys.add("key3");
+// ...
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262}
+@Override
+publicvoidmap(Objectkey,Textvalue,Contextcontext)throwsIOException, InterruptedException{
+//Parsethe input line
+String[]parts=value.toString().split("\t");
+String joinKey = parts[0];
+Stringdata =parts[1];
+//Checkifthejoinkeyexistsinthesmallerdataset if
+(joinKeys.contains(joinKey)) {
+//Emit thejoinkey and data
+context.write(newText(joinKey),new Text(data));
+}
+}
+}
+publicstaticvoidmain(String[]args)throwsException{
+Configuration conf = new Configuration();
+Job job = Job.getInstance(conf, "SemiJoin");
+job.setJarByClass(SemiJoin.class);
+job.setMapperClass(SemiJoinMapper.class);
+job.setOutputKeyClass(Text.class);
+job.setOutputValueClass(Text.class);
+FileInputFormat.addInputPath(job, new Path(args[0]));
+FileOutputFormat.setOutputPath(job,newPath(args[1]));
+System.exit(job.waitForCompletion(true) ? 0 : 1);
+}
+}
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Output:In
+put data
+Dataset 1:
+key1data1
+key2data2
+key3data3
+key4data4
+key5data5
+Dataset 2:
+key1info1
+key3info3
+key5info5
+key6info6
+key7info7
+Output:
+key1data1
+key3data3
+key5data5
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:10
+10.Install and Run Pig then write Pig Latin scripts to sort, group, join, project, andfilteryour data. AIM:ToImplementInstallandRunPigthenwritePigLatinscriptstosort,group,join,project, andfilteryour data. DESCRIPTION:
+Apache Pig is a platform for analyzing large data sets that consists of a high-level languageforexpressing data analysis programs, coupled with infrastructure for evaluating these programs. The salient property of Pig programs is that their structure is amenable to substantial
+parallelization, which in turns enables them to handle very large data sets.At the present time, Pig's infrastructure layer consists of a compiler that produces sequences of Map-Reduceprograms, for which large-scale parallel implementations already exist (e.g., the Hadoopsubproject).Pig'slanguagelayercurrentlyconsistsofatextuallanguagecalledPigLatin,whichhasthefollowing key properties:
+Ease of programming. It is trivial to achieve parallel execution of simple, "embarrassingly parallel" data analysis tasks. Complex tasks comprised of multiple
+interrelateddatatransformationsareexplicitlyencodedasdataflowsequences,making themeasy to write, understand, and maintain. Optimizationopportunities.Thewayinwhichtasksareencodedpermitsthesystemto
+optimize their execution automatically, allowing the user to focus on semantics rather
+than efficiency. Extensibility.Userscancreatetheirownfunctionstodospecial-purposeprocessing. InstallApachePig
+AfterdownloadingtheApachePigsoftware,installitinyourLinux
+environment by following the steps given below. Step 1
+Create a directory with the name Pig in the same directory where the
+installation directories of Hadoop, Java, and other software were
+installed.(Inourtutorial,wehavecreatedthePigdirectoryintheuser named
+Hadoop). $mkdirPig Step
+2
+Extractthedownloadedtarfilesasshown below. $cd Downloads/
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262$tarzxvf pig-0.15.0-src.tar.gz
+$tarzxvfpig-0.15.0.tar.gz
+Step 3
+Movethecontentofpig-0.15.0-src.tar.gzfiletothePigdirectory created
+earlier as shown below. $mvpig-0.15.0-src.tar.gz/*/home/Hadoop/Pig/
+Configure Apache Pig
+AfterinstallingApachePig,wehavetoconfigureit.Toconfigure,we need to
+edit two files − bashrc and pig.properties.
+.bashrc file
+PigLatinScript. A=LOAD'student'USINGPigStorage()AS(name:chararray,age:int,gpa:float);
+B=FOREACHAGENERATEname; DUMP
+B;
+(John)
+(Mary)
+(Bill)
+(Joe)
+customers.txt
+1,Ramesh,32,Ahmedabad,2000.00
+2,Khilan,25,Delhi,1500.00
+3,kaushik,23,Kota,2000.00
+4,Chaitali,25,Mumbai,6500.00
+5,Hardik,27,Bhopal,8500.00
+6,Komal,22,MP,4500.00
+7,Muffy,24,Indore,10000.00
+orders.txt
+102,2009-10-0800:00:00,3,3000
+100,2009-10-0800:00:00,3,1500
+101,2009-11-2000:00:00,2,1560
+103,2008-05-2000:00:00,4,2060
+Self–join
+Self-joinisusedtojoinatablewithitselfasifthetableweretworelations,temporarily renaming
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262atleastonerelation. grunt>customers1=LOAD'hdfs://localhost:9000/pig_data/customers.txt'USINGPigStorage(',')
+as(id:int,name:chararray,age:int,address:chararray,salary:int);
+grunt>customers2=LOAD'hdfs://localhost:9000/pig_data/customers.txt'USINGPigStorage(',')
+as(id:int,name:chararray,age:int,address:chararray,salary:int);
+self-joinoperationontherelationcustomers,byjoiningthetworelationscustomers1and customers2asshown below. grunt>customers3 =JOINcustomers1 BY id, customers2 BY id;
+Verifytherelationcustomers3usingtheDUMPoperatorasshownbelow. grunt>
+Dump customers3;
+Output
+Itwillproducethefollowingoutput,displayingthecontentsoftherelationcustomers. (1,Ramesh,32,Ahmedabad,2000,1,Ramesh,32,Ahmedabad,2000)
+(2,Khilan,25,Delhi,1500,2,Khilan,25,Delhi,1500)
+(3,kaushik,23,Kota,2000,3,kaushik,23,Kota,2000)
+(4,Chaitali,25,Mumbai,6500,4,Chaitali,25,Mumbai,6500)
+(5,Hardik,27,Bhopal,8500,5,Hardik,27,Bhopal,8500)
+(6,Komal,22,MP,4500,6,Komal,22,MP,4500)
+(7,Muffy,24,Indore,10000,7,Muffy,24,Indore,10000)
+InnerJoin
+InnerJoinisusedquitefrequently;itisalsoreferredtoasequijoin.Aninnerjoinreturnsrows whenthereisa match in both tables. innerjoinoperationonthetworelationscustomersandordersasshownbelow. grunt>coustomer_orders = JOIN customers BY id, orders BY customer_id;
+Verification
+Verifytherelationcoustomer_ordersusingtheDUMPoperatorasshownbelow. grunt>
+Dump coustomer_orders;
+Output
+willgetthefollowingoutputthatwillthecontentsoftherelationnamedcoustomer_orders. (2,Khilan,25,Delhi,1500,101,2009-11-20 00:00:00,2,1560)
+(3,kaushik,23,Kota,2000,100,2009-10-0800:00:00,3,1500)
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262(3,kaushik,23,Kota,2000,102,2009-10-0800:00:00,3,3000)
+(4,Chaitali,25,Mumbai,6500,103,2008-05-2000:00:00,4,2060)
+Note− OuterJoin:Unlikeinnerjoin,outerjoinreturnsalltherowsfromatleastoneoftherelations. Anouter
+join operation is carried out in three ways − Left outer join
+Rightouterjoin
+Full outer join
+Left Outer Join
+Letusperformleftouterjoinoperationonthetworelationscustomersandordersasshown below. grunt>outer_left=JOINcustomersBYidLEFTOUTER,ordersBYcustomer_id;
+Verification
+Verifytherelationouter_leftusingtheDUMPoperatorasshownbelow. grunt> Dump outer_left;
+Output
+Itwillproducethefollowingoutput,displayingthecontentsoftherelationouter_left. (1,Ramesh,32,Ahmedabad,2000,,,,)
+(2,Khilan,25,Delhi,1500,101,2009-11-2000:00:00,2,1560)
+(3,kaushik,23,Kota,2000,100,2009-10-0800:00:00,3,1500)
+(3,kaushik,23,Kota,2000,102,2009-10-0800:00:00,3,3000)
+(4,Chaitali,25,Mumbai,6500,103,2008-05-2000:00:00,4,2060)
+(5,Hardik,27,Bhopal,8500,,,,)
+(6,Komal,22,MP,4500,,,,)
+(7,Muffy,24,Indore,10000,,,,)
+RightOuterJoin
+Therightouterjoinoperationreturnsallrowsfromtherighttable,eveniftherearenomatches intheleft
+table. Letusperformrightouterjoinoperationonthetworelationscustomersandordersasshown below. grunt>outer_right=JOINcustomersBYidRIGHT,ordersBYcustomer_id; Verification
+Verifytherelationouter_rightusing theDUMPoperator asshown below.
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262grunt>Dump outer_right
+Output
+Itwillproducethefollowingoutput,displayingthecontentsoftherelationouter_right. (2,Khilan,25,Delhi,1500,101,2009-11-20 00:00:00,2,1560)
+(3,kaushik,23,Kota,2000,100,2009-10-0800:00:00,3,1500)
+(3,kaushik,23,Kota,2000,102,2009-10-0800:00:00,3,3000)
+(4,Chaitali,25,Mumbai,6500,103,2008-05-2000:00:00,4,2060)
+FullOuterJoin
+Thefullouterjoinoperationreturnsrowswhenthereisamatchinoneoftherelations. grunt>outer_full = JOIN customers BY id FULL OUTER, orders BY customer_id;
+Example
+Letusperformfullouterjoinoperationonthetworelationscustomersandordersasshown below. grunt>outer_full=JOINcustomersBYidFULLOUTER,ordersBYcustomer_id;
+Verification
+Verifytherelationouter_fullusingtheDUMPoperatorasshownbelow. grun>
+Dump outer_full;
+Output
+Itwillproducethefollowingoutput,displayingthecontentsoftherelationouter_full. (1,Ramesh,32,Ahmedabad,2000,,,,)
+(2,Khilan,25,Delhi,1500,101,2009-11-2000:00:00,2,1560)
+(3,kaushik,23,Kota,2000,100,2009-10-0800:00:00,3,1500)
+(3,kaushik,23,Kota,2000,102,2009-10-0800:00:00,3,3000)
+(4,Chaitali,25,Mumbai,6500,103,2008-05-2000:00:00,4,2060)
+(5,Hardik,27,Bhopal,8500,,,,)
+(6,Komal,22,MP,4500,,,,)
+(7,Muffy,24,Indore,10000,,,,
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Experiment No:11
+11.Install and Run Hive then use Hive to create, alter, and drop databases, tables, views, functions, and indexes
+AIM:InstallandRunHivethenuseHivetocreate,alter,anddropdatabases,tables,views, functions, andindexes
+DESCRIPTION:
+HiveisadatawarehouseinfrastructuretooltoprocessstructureddatainHadoop.Itresides ontopof Hadoop to summarize Big Data, and makes querying and analyzing easy. DataBase Creation:
+hive>createdatabaseCSE;
+OK
+hive> show databases;
+OK
+cs
+cse
+hive>show databaseslike'c*';
+OK
+cs
+csec
+seb
+hive> show tables;
+OK
+csebcusto
+mer order
+hive>createtablecustomer(cidBIGINT,cnameSTRING,cageINT)
+> rowformat delimited
+> fieldsterminatedby',' > storedastextfile;
+OK
+hive> use default;
+OK
+hive>drop database csecascade;
+OK
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262Timetaken:6.524seconds
+hive> show tables;
+OK
+customer
+hive>LOADDATA LOCAL
+> INPATH'/home/lalitha2/Desktop/deepu.txt' > OVERWRITEINTOTABLEcustomer;
+OK
+hive>select*fromcustomer; OK
+1 A 20
+2 B 30
+3 C 35
+4 D 40
+hive>createtableOrder(oidBIGINT,onameSTRING,cidINT)
+> rowformat delimited
+> fieldsterminatedby',' > storedastextfile;
+OK
+hive>LOADDATA LOCAL
+> INPATH'/home/lalitha2/Desktop/orderdet.txt' > OVERWRITEINTOTABLEOrder;
+hive>select*from Order;
+OK
+101 pendrive1
+102 mouse2
+103 laptop 3
+104 laptop 4
+105 mouse2
+1.Writeaquerytodisplaycid,oidwhoarehavinganorderitempendrive select
+cid,oid from Order WHERE oname="pendrive";
+OK
+1 101
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12622.writeaquerytodisplayoid,onamewhichishavingcid=2
+hive> select oid,oname from Order WHERE cid=2;
+OK
+102 mouse
+105 mouse
+3.writeaquery todisplay oidof laptop
+hive>selectoid,onamefrom OrderWHERE cid=2;
+OK
+102 mouse
+105 mouse
+4.writea queryto displayoid oflaptop or mouse
+hive>selectoidfrom OrderWHEREOname="laptop"OROname="mouse";
+OK
+102
+103
+104
+105
+5.writeaquerytodisplayoidandcid
+hive> select oid,cid from Order;
+OK
+101 1
+102 2
+103 3
+104 4
+105 2
+1.writeaquerytodisplaycustomernameofcid=2fromcustomer
+hive> select cname from customer where cid=2;
+OK
+B
+2.writeaquerytodisplaycustomernameswhoarehavingcustomerid<4 hive>
+select cname from customer where cid<4;
+OK
+A
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262B
+C
+JOINS
+hive>selectc.cid,c.cname,o.oid,o.onamefromcustomercjoinOrderoon(c.cid=o.cid);
+OK
+1 A101 laptop
+2 B 102 cd
+3 C103 pendrive
+4 D 104 dd
+hive>selectc.cid,c.cname,o.oid,o.onamefromcustomercleftouterjoinOrdero on(c.cid=o.oid);OK
+1 ANULLNULL
+2 BNULL NULL
+3 CNULL NULL
+4 DNULLNULL
+hive>selectc.cid,c.cname,o.oid,o.oitemfromcustomercrightouterjoinOrdero on(c.cid=o.oid);OK
+NULLNULL101pendrive
+NULL NULL 102 mouse
+NULL NULL 103 laptop
+NULL NULL 104 laptop
+NULL NULL 105 mouse
+hive>selectc.cid,c.cname,o.oid,o.oitemfromcustomercfullouterjoinOrdero on(o.oid=c.cid);OK
+NULLNULL101pendrive
+NULL NULL 102 mouse
+NULL NULL 103 laptop
+NULL NULL 104 laptop
+NULL NULL 105 mouse
+Views:
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262hive>createviewcustomer_viewas
+> selectc.cid,c.cname,o.oid,o.oname
+> from customercfull outerjoinOrdero
+> on(c.cid=o.cid);
+OK
+hive>select*from customer_view;
+OK
+1 A 101 laptop
+2 B 102 cd
+3C 103 pendrive
+4 D 104 dd
+NULLNULL105ddd
+
+
+
+
+Experiment No:12
+12.Spark joins: Consider a scenario where 2 datasets of a leading retail client to be
+joined
+withoneanotherusingSparkjoins.Customerdataset:Salesdataset:SchemaDetails:101ravi1 102keerth 2101 Syam1 101Geetha 1103Dawn3 101ravi 1102 keerth2 101 Syam1 101 Geetha 1 103 Dawn 3 AR20 Computer Science and Engineering Aditya
+Engineering College (A) 66 Customer schema (customer id,customername,product id)
+Sales Schema (product id,product name and price) Join both datasets with commonkey Product id and print customer id, customer name, product name and price. Aim:Tocreate theSpark joins fromthedatasets
+Description:
+ThescenarioinvolvesjoiningtwodatasetsofaleadingretailclientusingSparkjoins.Thetwo datasetsarethe Customer dataset and the Sales dataset. Here are the schema details for the datasets:
+Customerdataset:
+Columns:customerid,customername,productid Sales
+dataset:
+Columns:productid,productname, price
+Thegoalistojointhedatasetsbasedonthecommonkey,whichistheproductid,andthenprint the
+following information: customer id, customer name, product name, and price. Program:
+importorg.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+importorg.apache.spark.sql.SparkSession;
+public class SparkJoinExample
+{ publicstatic voidmain(String[]args){
+//CreateSparkSession
+SparkSessionspark=SparkSession.builder()
+.appName("SparkJoinExample")
+master("local")
+.getOrCreate();
+//ReadCustomerdataset
+Dataset<Row>customerData=spark.read()
+.option("header",true)
+.csv("path_to_customer_dataset.csv");
+//ReadSalesdataset
+Dataset<Row>salesData=spark.read()
+.option("header",true)
+.csv("path_to_sales_dataset.csv");
+//Performjoinoperation
+Dataset<Row>joinedData=customerData.join(salesData, "product_id")
+.select("customer_id","customer_name","product_name", "price");
+//Printthejoineddata
+joinedData.show();
+//StopSparkSessionspark.st
+op();
+}
+}
+Output:
+CustomerDataset(customer_dataset.csv):
+customer_id,customer_name,product_id
+101,Ravi,1
+102,Keerth,2
+101,Syam,1
+101,Geetha,1
+103,Dawn,3
+SalesDataset(sales_dataset.csv):
+product_id,product_name,price1,Produ
+ct A,100
+2,ProductB,200
+1,ProductA,100
+1,Product A,100
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A12623,Product C,300
+Usingtheprovidedinput,here'sthe correspondingoutputafterperformingthejoinoperation:
++ + + + +
+|customer_id|customer_name|product_name|price|
++ + + + +
+|101|Ravi|ProductA|100|
+|101|Ravi|ProductA|100|
+|101|Ravi|ProductA|100|
+|102|Keerth|ProductB| 200|
+|101|Ravi|ProductA|100|
+|101|Ravi|ProductA|100|
+|101|Ravi|ProductA|100|
+|101|Syam|ProductA|100|
+|101|Syam|ProductA|100|
+|101|Syam|ProductA|100|
+|101|Geetha|ProductA| 100|
+|101|Geetha|ProductA| 100|
+|101|Geetha|ProductA| 100|
+|103|Dawn|ProductC|300|
++ + + + +
+Thisoutputshowsthecustomer_id,customer_name,product_name,andpriceafterjoiningthe twodatasets based on the product_id column
+Expt.No:
+Date:
+PageNo:ADITYAENGINEERINGCOLLEGE(A) Reg.No:21A91A1262
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1262Experiment No :5
+5. Write a map reduce program that mines weather data
+AIM: To implement mines the weather data using mapreduce
+DESCRIPTION:
+Sensors senses weather data in big text format containing station ID, year, date, time, temperature, quality etc. from each sensor and store it in single line. Suppose
+thousands of data sensors are their then we have thousands of records with no
+particular order. We require only year and maximum temparatureof particular
+quality in that year. For example:
+Input string from sensor:
+0029029070999991902010720004+64333+023450FM-12+
+000599999V0202501N027819999999N0000001N9-00331+
+99999098351ADDGF102991999999999999999999
+Here: 1902 is year
+0033 is temperature
+1 is measurement quality (Range between 0 or 1 or 4 or 5 or 9)
+Here each mapper takes input key as "byte offset of line" and value as "one weather
+sensor read i.e one line". and parse each line and produce intermediate key is "year" and intermediate value as "temperature of certain measurement qualities" for that
+year. PROGRAM
+Driver code:
+import java.io.IOException;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1262import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.FileOutputFormat;
+import org.apache.hadoop.mapred.JobConf;
+import org.apache.hadoop.mapred.TextOutputFormat;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+public class Weather {
+public static void main(String[] args)
+{JobConf conf=new JobConf();
+Job job;
+try {
+job = new Job(conf,"WeatherDataExtraction");
+job.setJobName("WeatherDataExtraction");
+job.setMapperClass(Map.class);
+job.setReducerClass(Reduce.class);
+job.setOutputKeyClass(Text.class);
+job.setOutputValueClass(IntWritable.class);
+FileInputFormat.addInputPath(job,new
+Path("E:\\Nitin\\Programming\\DATA\\01001.dat\\01001.dat"));
+FileOutputFormat.setOutputPath(conf,new
+Path("E:\\Nitin\\output20.txt"));
+try
+{ job.waitForCompletion(true);
+} catch (ClassNotFoundException | IOException | InterruptedException
+e) {
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1262// TODO Auto-generated catch block
+e.printStackTrace();
+}
+} catch (IOException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+}
+}
+Mapper Class:
+Mapper Class
+class MaxTemperatureMapper
+extends Mapper {
+@Override
+public void map(LongWritable key, Text value, Context context)
+throws IOException, InterruptedException {
+String line = value.toString();
+//In input character string,perticular year occurs from character position
+//15 to 19 and it is fix for every input data. //so make substring to get year from total input string
+String year = line.substring(15, 19);
+int airTemperature;
+//Temperature(including sign character) occurs from character position
+// 87 to 92 for temperature comparision we needn't required "+ve" sign
+//before temp.because +11c=11c we can ignore "+ve" sign
+//before Temp.but not "-ve" sign.
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1262//Make substring to get temp from total input string
+if (line.charAt(87) == '+') {
+// parseInt doesn't like leading plus signs
+airTemperature = Integer.parseInt(line.substring(88, 92));
+} else {
+airTemperature = Integer.parseInt(line.substring(87, 92));
+}
+String quality = line.substring(92, 93);
+//Temperature quality occurs at character position 93
+//and we have to get Temp. qualities of 0 or 1 or 4 or 5 or 9
+//so make substring of one character to get temp. quality and matches //it with our
+required qualities
+//If it matches,then we write perticular year as key and temp. as value //to context
+output
+if (quality.matches("[01459]")) {
+context.write(new Text(year), new IntWritable(airTemperature));
+}
+}
+}
+Reducer:
+import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+public class Reduce extends Reducer<Text,IntWritable,Text,IntWritable>{
+public void reduce(Text key,Iterable<IntWritable>values,Context context) throws
+Expt.No:
+Date:
+PageNo:
+ADITYA ENGINEERING COLLEGE(A) Reg.No:21A91A1262IOException, InterruptedException
+{
+Integer max=new Integer(0);
+for(IntWritableval:values) {
+if (val.get()>max.intValue()) { max=val.get();}
+}
+context.write(key,newIntWritable(max.intValue()));
+}
+}
+OUT PUT:
+1949 111
+1955 22
