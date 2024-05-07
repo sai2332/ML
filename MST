@@ -1,0 +1,755 @@
+MST EXTERNAL QUESTIONS
+1.(a). Write a HTML5 Program using Types of Elements, HTML Elements - Attributes, Metadata
+Element Include the Metadata element in Homepage.html for providing description as "IEKart's is
+an online shopping website that sells goods in retail. This company deals with various categories
+like Electronics, Clothing, Accessories etc.
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXp1a</title>
+</head>
+<body>
+<center>
+<h1>WELCOME TO IKART'S ONLINE SERVICE'S</h1>
+</center>
+</body>
+</html>
+ (b). Write a HTML5 Program using Paragraph Element, Division and Span Elements, List Element
+Make use of appropriate grouping elements such as list items to "About Us" page of IEKart's
+Shopping Application.
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXp1a</title>
+<style>
+#header {
+border:1px solid black;width:100%;height:60px;
+}
+#nav {
+text-align:center;border:1px solid black;width:100%;height:60px;
+}
+#aside {
+display:inline;float:left;width:20%;border:1pxsolidblack;height:500px; }
+#section {
+width:80%;height: 500px;border:1px solid black;margin-left:305px;text-align: center; }
+#footer
+{border:1px solid black;width:100%;height:100px;text-align:center}
+</style>
+</head>
+<body bgcolor="antiquewhite">
+<div id="header">
+<center>
+<h1><header>WELCOME TO IKART'S ONLINESERVICE'S</header>
+</h1>
+</center></div>
+<div id="nav"><nav><b>This is navigation section</b></nav></div>
+<div id="aside"><aside> <details>
+<summary>About Us</summary>
+<ul>
+<li>Limited License
+<p>Limited Licence Refers to a licence to an intellectual property right, typically copyright,
+which does not grant all the rights which the ownerof the intellectual property possesses, but
+only some of those rights.</p>
+</li>
+<li>Copy Rights
+<p>According to the US Copyright Office, copyright applies to original works of creative
+expression that are captured in a tangible form.
+</p>
+</li>
+<li>Terms Policy
+<ul> <li>Trademark or Copyright Infringement Cease and Desist Letter</li>
+<li>Website Cookies Policy</li>
+<li>Shipping Policy for the Website</li></ul>
+</li>
+</ul>
+</details>
+</aside></div>
+<div id="section"><b><section>This is main Section</section></b></div>
+<div id="footer"><b><footer >This is footer Section</footer></b></div>
+</body>
+</html>
+
+
+
+
+2.(a).Write a Program for Creating Form Elements, Color and Date Pickers, Select and Datalist
+Elements Using the form elements create Signup page for IEKart's Shopping application.
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXp1a</title>
+<style>
+#header{
+width:100%;height:100px;background:black;
+}
+#header h1{
+color:white;
+}
+#nav{
+text-align:right;width:100%;height:60px;
+}
+#nav span{
+background-color:white; border:1px solid black; padding:5px; border-radius: 4px;
+}
+#nav span a{
+text-decoration: none;
+}
+#aside{
+float:left;width:400px;height:700px;
+}
+#section{
+width:80%;height: 600px;margin-left:305px;text-align: center;
+}
+#footer{
+width:100%;height:100px;text-align:center
+}
+</style>
+</head>
+<body bgcolor="antiquewhite">
+<center>
+<div id="header">
+<center><h1><header>WELCOME TO IKART'S ONLINE SERVICE'S</header></h1>
+</center>
+<div id="nav">
+<nav><span>Track </span><span><a href="sign.html">Sign UP</a></span>
+<span><a href="login.html">Login</a></span></nav></div></div>
+<div class="page">
+<form align="center">
+<br>
+<label>First Name:</label>
+<input type="text"placeholder="Enter Your First-Name" spellcheck="true">
+<br><br>
+<label>Last Name:</label>
+<input type="text"placeholder="Enter Your Last-Name" spellcheck="true">
+<br><br>
+<label>Date of birth:</label><input type="date">
+<br><br>
+<label>Email:</label><inputtype="email"placeholder="EnteryourmailId" spellcheck="true">
+<br><br>
+<label>Username:</label>
+<input type="text" pattern="[A-Za-z] UniqueUserName"spellcheck="true">
+<br><br>
+<label>Password:</label><input type="password" ><br><br>
+<label>Confirm Password:</label><input type="password">
+<br><br>
+<tr rowspan="3">
+<td>
+<label>Address :<br></label><textarea rows="3" cols="30" spellcheck="true"></textarea>
+<br><br>
+<tr>
+<td> <input type="checkbox" name="declare"></td>
+<td><label contenteditable="true">I here by declare that the above facts are true in future if it
+is proved false I have no <br> objection if my sanctioned pension is cancelled more over I shall
+return all the pension amount <br> which I obtained from the Government by my false
+representation.
+</label>
+<br></td></tr>
+<br><button type="submit">Signup</button>
+</form>
+</div>
+</center>
+</body>
+</html>
+(b). Write a Program using Media, Iframe Add media content in a frame using audio, video, iframe
+elements to the Home page of IEKart's Shopping application. <!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXp1a</title>
+<style>
+#header {
+border:1px solid black;width:100%;height:60px;
+}
+#nav {
+text-align:center;border:1px solid black;width:100%;height:60px;
+}
+#aside {
+display:inline;float:left;width:20%;border:1pxsolidblack;height:500px;
+}
+#section {width:80%;height: 500px;border:1px solid black;margin-left:305px;text-align: center;
+}
+#footer
+{border:1px solid black;width:100%;height:100px;text-align:center
+}
+</style>
+</head>
+<body bgcolor="antiquewhite">
+<div id="header">
+<center>
+<h1><header>WELCOME TO IKART'S ONLINESERVICE'S</header>
+</h1>
+</center></div>
+<div id="nav"><nav><b>This is navigation section</b></nav></div>
+<div id="aside"><aside>
+<details>
+<summary>About Us</summary>
+<ul>
+<li>Limited License
+<p>Limited Licence Refers to a licence to an intellectual property right, typically copyright,
+which does not grant all the rights which the ownerof the intellectual property possesses, but
+only some of those rights.</p>
+</li>
+<li>Copy Rights
+<p>According to the US Copyright Office, copyright applies to original works of creative
+expression that are captured in a tangible form.
+</p>
+</li>
+<li>Terms Policy
+<ul> <li>Trademark or Copyright Infringement Cease and Desist Letter</li>
+<li>Website Cookies Policy</li>
+<li>Shipping Policy for the Website</li></ul>
+</li></ul>
+</details>
+</aside></div>
+<div id="section"><b><section><iframe src=https://aec.edu.in
+style="height:220px" title="W3Schools Free Online Web Tutorials">
+</iframe>
+<video src="movie.mp4" width="300px" controls></video>
+</section></b></div>
+<div id="footer"><b>
+<footer >
+<ahref="https://www.amazon.in/gp/help/customer/display.html?nodeId=200545940&ref_=fo
+oter_cou">
+Conditions of Use &SALES</a>
+</span>
+<p>
+NoticeInterest-Based Ads &#169; 2020-2022, IKART.com, Inc. or its affiliates</p>
+</footer>
+</b></div>
+</body>
+</html>
+
+
+
+
+
+3.(a). Write JavaScript code to book movie tickets online and calculate the total price, considering
+the number of tickets and price per ticket as Rs. 150. Also, apply a festive season discount of 10%
+and calculate the discounted amount.
+<html>
+<head>
+<title>movie tickets</title>
+</head>
+<body>
+<div id="main" style="border:1px solid black;width:100%;height:auto">
+<div id="header " style="margin-bottom:30px;margin-left:50px">
+<center><h1>WELCOME TO IMAX THEATER</h1></center>
+<H3>CLICK BELOW TO BOOK TICKETS</H3>
+<button onclick="f1()">BOOK</button>
+<h1 id="re"></h1>
+<h1 id="id"></h1>
+<button id="k" onclick="fun()">Pay Now</button>
+<script>
+var p=150; var d=0.1;
+function f1(){
+var a=prompt("enter number of tickets");
+var s=(p*a); s=s-(s*d);
+document.getElementById('re').innerHTML="THE AMOUNT YOU HAVE TO PAY:";
+document.getElementById('id').innerHTML=s;
+}
+function fun()
+{
+alert("PAYMENT SUCCESSFULL");
+alert("COLLECT TICKETS AT THEATRE");
+}
+</script></div>
+</div>
+</body>
+</html>
+(b). Write JavaScript code to display the movie details such as movie name, starring, language, and
+ratings. Initialize the variables with values of appropriate types. Use template literals wherever
+necessary.
+<html>
+<head>
+<title>review</title></head>
+<body bgcolor="antiquewhite">
+<div id="container"style="border:0px solid blue;width:80%;margin:auto">
+<divid="header"style="text align:center;color:orange">
+<h1>BimbisaraMovieDetails</h1>
+</div>
+</div>
+<br><br>
+<div id="body"style="text-align:center;">
+<script>
+var a=`"Bimbisara"`; var s=`"`;
+const b=["kalyan ram","Samyuktha","Catharine","Srinivas Reddy"];
+const l=["Telugu","Hindi","Tamil","kannada"]; var j=`"`;
+for (let i = 0; i < b.length; i++)
+{ s += b[i] + ","; j+=l[i]+",";
+}
+s+=`"`; j+=`"`;
+document.write("<h2>"+"Movie Name :"+a+"</h2>");
+document.write("<h2>"+"MovieCast:"+s+"</h2>");
+document.write("<h2>"+"Languages:"+j+"</h2>"); document.write("<h2>"+"Rating:
+4.5"+"</h2>");
+</script>
+</div>
+</body>
+</html>
+
+
+
+
+4.(a). Write a Javascript program where If a user clicks on the given link, they should see an empty
+cone, a different heading, and a different message and a different background color. If user clicks
+again, they should see a refilled cone, a different heading, a different message, and a different
+color in the background.
+<html><head>
+<title>exp5a</title>
+</head>
+<body bgcolor="yellow">
+<style>
+a{
+color:rgb(102, 7, 7); font-size: 25px;}
+</style>
+<script>
+var c=0;
+function fun()
+{
+if(c==0)
+{
+document.body.style.backgroundColor = "blue";
+document.getElementById("id1").innerHTML="FILLTHECONE";
+document.getElementById("imag").src="coneemp.webp";
+document.getElementById("link").innerHTML="FILL";
+c=1;
+}
+Else
+{
+document.body.style.backgroundColor="yellow";
+document.getElementById("id1").innerHTML="EATTHECONE";
+document.getElementById("imag").src="conefii.webp";
+document.getElementById("link").innerHTML="EAT";
+c=0;
+}
+}
+</script>
+<center>
+<h1 id="id1"> EAT THE CONE</h1>
+<br><br><img src="conefii.webp" alt="Reload" height="300px" width="200px" id="imag"><br><br>
+<a href="javascript:fun()" id="link">EAT</a>
+</center>
+</body>
+</html>
+ (b). Write a JavaScript code to book movie tickets online and calculate the total price based on
+the 3 conditions: (a) If seats to be booked are not more than 2, the cost per ticket remains Rs. 150.
+(b) If seats are 6 or more, booking is not allowed. (c) If seats to be booked are more than 2 but less
+than 6, based on the number of seats booked, do the following - Calculate total cost by applying
+discounts of 3, 5, 7, 9, 11 percent, and so on for customer 1,2,3,4 and 5. Try the code with different
+values for the number of seats. Write the following custom functions to implement given
+requirements: (i) calculateCost(seats): Calculate and display the total cost to be paid by the
+customer for the tickets he has bought. (ii) calculateDiscount(seats): Calculate discount on the
+tickets bought by the customer. <html>
+<html>
+<head>
+<title> exp3d </title>
+<script>
+var a;
+function fun(){
+a=prompt("enter no of ticket's to book");
+if(a<6)
+{
+document.getElementById("id").innerHTML="The Amount Needed To Book Tickets::";
+document.getElementById("id1").innerHTML="Rs."+calculateCost(a);
+document.getElementById("dis").style.display="inline";
+}
+else
+{
+document.getElementById("id").innerHTML="Upto 5 Tickets Only You Can Book in Online";
+document.getElementById("id1").innerHTML="";
+document.getElementById("id2").innerHTML="";
+}
+}
+const p=150;
+function calculateCost(a){
+var i=1;
+s=0;
+j=0;
+k=0.03
+if(a>2 && a<6)
+{
+do
+{
+j=p-(p*k);
+s+=j;
+j=0;
+k+=0.02;
+i+=1
+}
+while(i<=a);
+}
+else if(a<=2)
+{
+s=p*a;
+}
+else
+s=0;
+return s;
+}
+function fun2()
+{
+document.getElementById("id2").innerHTML="Discount Offered Rs."+calculateDiscount(a);
+}
+function calculateDiscount(a)
+{
+var g=calculateCost(a);
+var z=a*p;
+return z-g;
+}
+</script>
+</head>
+<body>
+<center><font color="white"><h1 style="background-color:orange">
+WELCOME TO TICKET BOOKING</h1></font></center>
+<h2>Click below to Book Tickets</h2>
+<br>
+<input type="button" value="BOOK" onclick="fun()">
+<br> <br>
+<input type="button" value="Discount" onclick="fun2()" style="display:none;" id="dis">
+<center>
+<h2 id="id"> </h2>
+<h2 id="id1"> </h2>
+<h2 id="id2"> </h2></center>
+</body>
+</html>
+
+
+
+
+
+5.(a). Create an array of objects having movie details. The object should include the movie name,
+starring, laPROGRAM:
+<html>
+<head>
+<title>exp5a</title>
+</head>
+<body>
+<script>
+var a={
+"Movie":'Bimbisara','Starring':'KalyanRam',"Language":'Telugu','Rating':'4.5'};
+var b={
+"Movie":"RRR","Starring":"RAMcharan&NTR","Language":"Telugu,Hindi",'Rating':
+"4.5"};
+var c={
+"Movie":"KGF","Starring":"Yash", "Language":"English,Hindi,Knnada",'Rating':"5"};
+var d={
+"Movie":"ROBO","Starring":"RajiniKanth","Language":"Telugu,Hindi",'Rating':"5"};
+const arr=[a,b,c,d]
+document.write("<center>"+"<h1>"+"SOMEHITMOVIEDETAILS"
+"</h1>"+"</center>"+"<br>"+"<br>")
+document.write("<center>")
+for(let i=0;i<arr.length;i++)
+{
+document.write("<br>"+"Movie_Name:"+arr[i].Movie+"<br>"+"Starring:"+arr[i].Starri
+ng+"<br>");
+document.write("Language:"+arr[i].Language+"<br>"+"Rating:"+arr[i].Rating+"<br>");
+document.write("<br>"+"<br")
+}
+document.write("</center>");
+</script>
+</body>
+</html>
+ (b). Creating Modules, Consuming Modules Validate the user by creating a login module. Hints:
+(i) Create a file login.js with a User class. (ii) Create a validate method with username and
+password as arguments. (iii) If the username and password are equal it will return "Login
+Successful" else will return "Unauthorized access". (iv) Create an validateUser.html file with
+textboxes username and password and a submit button. (v) Add a script tag in HTML to include
+validateUser.js file. (vi) Create an validateUser.js file which imports login module and invokes
+validate method of User class. (vii) On submit of the button in HTML the validate method of the
+User class should be invoked. (viii) Implement the validate method to send the username and
+password details entered by the user and capture the return value to display in the alert.
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Exp_5c</title>
+<script type="module" src="index.js"></script>
+</head>
+<body>
+<center><h1>WELCOME TO THE WWEB SERVICES</h1></center>
+<center>
+<h4>please fill the details carefullys</h4>
+<form name="fn1" method="post">
+<table>
+<tr>
+<td>Name:</td>
+<td><input type="text" name="cname" required minlength="5"></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="pass1" required minlength="5"></td>
+</tr>
+</table>
+<br><br>
+<center> <input type=button id="btn" value="Submit"></center>
+</form>
+</center>
+</body>
+</html>
+INDEX.JS
+import {User} from '/login.js';
+var btn=document.getElementById("btn");
+btn.addEventListener('click',val);
+function val()
+{
+var x=document.forms["fn1"]["cname"].value;
+var y=document.forms["fn1"]["pass1"].value;
+const user=new User(); user.valid(x,y);
+}
+LOGIN.JS
+export class User
+{
+name='ABCDE';
+pass='98765';
+valid(name,pass)
+{
+if(this.name==name && this.pass==pass)
+alert("Login Successful");
+else
+alert("Unaurthorized Access");
+}
+}
+
+
+
+
+6.(a). Create a text file src.txt and add the following data to it. Mongo, Express, Angular, Node.
+var fs = require('fs');
+fs.appendFile('myfile2.txt', 'Mongo,Express,Angular,Node', function
+(err) { if (err) throw err; console.log('Saved!');
+});
+(b). Write a program to show the workflow of restarting a Node application. const http =
+require("http"); http.createServer((req,
+res) => {
+res.write("I have created the server!");
+res.end(); }).listen(8080);
+console.log("Server started... Running on localhost:8080");
+MODIFIED PROGRAM:
+const http = require("http");
+var server = http.createServer((req, res) =>
+{ res.write("I have modified the server!");
+});
+server.listen(8080);console.log("Server started... Running on localhost:8080");
+ (c). Write a program to show the workflow of JavaScript code executable by creating web server
+in Node.js.
+var http = require('http'); http.createServer(function(req,res)
+{
+res.writeHead(200,{'Content-Type':'text/html'})
+res.write('THIS IS MY FIRST NODE.JS PROGRAM');
+res.end();
+}).listen(1000);
+
+
+
+
+7.(a). Implement routing for the AdventureTrails application by embedding the necessary code in
+the routes/route.js file.
+var express=require('express')
+var route=require('./7aroute.js')
+var app=express()
+app.use('/',route)
+app.listen(4000,function(){
+console.log('server runnig. ..')
+Route.js
+var express=require('express')
+var router=express.Router()
+router.get('/hii',function(req,res){
+res.status(200).send('HII everyone');
+})
+router.get('/bye',function(req,res){
+res.status(200).json({message:"good to see you"});
+})
+router.all('*',function(req,res){
+res.status(200).json({status:'fail',message:"Invalid"});
+})
+module.exports=router;
+ (b). Write a program to explain session management using cookies.
+var express=require('express')
+var cookie=require('cookie-parser')
+var app=express() app.use(cookie())
+app.get('/set',function(req,res)
+{
+res.cookie('name','age');
+res.cookie('and','45');
+res.status(200).send('cookie set');
+})
+app.get('/get',function(req,res)
+{
+res.status(200).send(req.cookies);
+})
+app.listen(4000,function()
+{
+console.log('runingg..... ');
+})
+ (c). Implement security features in myNotes application. <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Middle</title>
+</head>
+<body>
+<iframe src="http://localhost:4000/ab" height="300" width="300"></iframe>
+</body>
+</html>
+.js
+var ex=require('express')
+var hel=require('helmet')
+var app=ex() app.use(hel())
+app.get('/ab',(req,res)=>{
+res.send('<h1>WELCOME TO OUR PAGE</h1>');
+})
+app.listen(4000,()=>{console.log('rer..')});
+
+
+
+
+
+8.(a). Consider that developer needs to declare a function - getMobileByVendor which accepts
+string as input parameter and returns the list of mobiles. Write a Program using TypeScript?
+function getMobileByManufacturer(manufacturer: string): string[]
+{
+let mobileList: string[]; if (manufacturer === 'Samsung')
+{
+mobileList = ['Samsung Galaxy S6 Edge', 'Samsung Galaxy Note 7', \'Samsung Galaxy J7
+SM-J700F'];
+return mobileList;
+}
+else if (manufacturer === 'Apple')
+{
+mobileList = ['Apple iPhone 5s', 'Apple iPhone 6s ', 'Apple iPhone 7'];
+return mobileList;
+}
+else {
+mobileList = ['Nokia 105', 'Nokia 230 Dual Sim'];
+return mobileList;
+} }
+console.log('The available Samsung mobile list: [' +
+getMobileByManufacturer('Samsung')+']');
+console.log('\nThe available Iphone mobile list: [' +
+getMobileByManufacturer('Apple')+"]");
+
+(b). Consider that developer needs to declare a manufacturer's array holding 4 objects with id and
+price as a parameter and needs to implement an arrow function - myfunction to populate the id
+parameter of manufacturers array whose price is greater than or equal to 150 dollars. Write a
+program using TypeScript?
+var manufacturers = [{ id: 'Samsung', price: 150 },
+{ id: 'Microsoft', price: 200 },
+{ id: 'Apple', price: 400 },
+{ id: 'Micromax', price: 100 }];
+console.log('Details of Manufacturer array are : ');
+function myFunction() {
+var test = manufacturers.filter((m) =>m.price >= 150);
+for (var item of test)
+{
+console.log(item.id);
+}
+}
+myFunction();
+
+
+
+
+
+9.(a). Implement business logic for adding multiple Product values into a cart variable which is type
+of string array?
+const cart: string [] = [];
+const push to Cart = (item: string) => {
+cart.push(item); };
+function
+add to Cart (...productName: string []):
+string [] {
+for (const item of productName)
+{
+Push to Cart(item);
+}
+return cart;
+}
+console.log('Cart Items are:' + addtoCart(' Moto G Play, 4th Gen', ' Apple iPhone 5s'));
+
+ (b). Declare an interface named - Product with two properties like productId and productName
+with the number and string datatype and need to implement logic to populate the Product details?
+interface Product
+{
+productId: number;
+productName:string;
+}
+function get Product Details (product obj: Product): string
+{
+Return "ProductID:"+productobj.productId+'\n The product name is product obj. product
+Name;
+}
+const product Object = {productId: 1001, productName: 'Mobile', product Category: 'Gadget'};
+const productDetails: string = getProductDetails(prodObject);
+console.log(productDetails);
+
+ (c). Declare a productList interface which extends properties from two other declared interfaces
+like Category,Product as well as implementation to create a variable of this interface type?
+interface Category
+{
+categoryName: string;
+}
+interface Product
+{
+productName: string;
+productId: number;
+}
+interface Product List extends Category, Product
+{
+list: Array<string>;
+}
+const product Details: Product List =
+{
+Category Name: 'Gadget',
+Product Name: 'Mobile',
+Product Id: 1234,
+list: ['Samsung', 'Motorola', 'LG']};
+const list Product = product Details. list;
+const pname: string=product Details. Product Name;
+console.log('Product Name is ' + pname);
+console.log('Product List is ' + list Product);
+
+
+
+
+10.(a). Declare an interface with function type and access its value?
+function CreateCustomerID(name: string, id: number): string
+{
+return 'The customer id is ' + name + ' ' + id;
+}
+interface String Generator
+{
+(chars: string, nums: number): string;
+}
+let idGenerator: StringGenerator;
+idGenerator = CreateCustomerID;
+const customerId: string = idGenerator('Mr.Tom', 101);
+console.log(customerId);
+
+ (b). Constructor Declare a class named - Product with the below-mentioned declarations: (i)
+productId as number property (ii) Constructor to initialize this value (iii) getProductId method to
+return the message "Product id is <>"?
+class Product
+{
+productId: number;
+constructor(productId: number)
+{
+this.productId = productId;
+}
+getProductId(): string {
+return 'Product id is : ' + this.productId;
+}
+}
+const product: Product = new Product(1234);
+console.log(product.getProductId());
